@@ -1,0 +1,47 @@
+/* src/components/styles/VideoSection.css */
+.video-section {
+  padding: 4em 0;
+  background-color: #fff;
+}
+
+.video-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1em;
+}
+
+.video-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 2em;
+  flex-wrap: wrap;
+}
+
+.video {
+  flex: 1;
+}
+
+.video img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.video-info {
+  flex: 1;
+}
+
+.video-info button {
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 5px;
+  background-color: #0066cc;
+  color: white;
+  cursor: pointer;
+  margin-top: 1em;
+}
+
+@media (max-width: 768px) {
+  .video-content {
+    flex-direction: column;
+  }
+}

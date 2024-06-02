@@ -1,0 +1,50 @@
+/* src/components/styles/About.css */
+.about-section {
+  padding:3% 0 ; 
+  background-color: #fff;
+  text-align: center;
+}
+
+.about-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1em;
+}
+
+.team {
+  display: flex;
+  justify-content: space-around;
+  gap: 1em;
+  flex-wrap: wrap;
+  margin-top: 2em;
+}
+
+.team-member {
+  background: white;
+  padding: 1rem 0;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  width: 30%;
+  margin-bottom: 1em;
+}
+
+.team-member img {
+  width: 100%;
+}
+
+.team-member h3 {
+  margin-top: 0.5em;
+}
+
+.team-member p {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .team-member {
+    width: 100%;
+  }
+  .about-section {
+    padding: 25px 0;
+  }
+}

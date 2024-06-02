@@ -1,0 +1,109 @@
+/* src/components/styles/HeroSection.css */
+.hero-section {
+  background: url("https://via.placeholder.com/1500") no-repeat center center/cover;
+  color: white;
+  padding: 4em 0;
+  text-align: center;
+}
+
+.hero-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1em;
+}
+
+.hero-section h1 {
+  font-size: 3em;
+  margin-bottom: 0.5em;
+}
+
+.hero-section p {
+  font-size: 1.2em;
+  margin-bottom: 1em;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  flex-wrap: wrap;
+}
+
+.search-bar input,
+.search-bar button {
+  padding: 0.5em;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 0.5em;
+}
+
+.search-bar input {
+  flex: 1;
+  min-width: 150px;
+}
+
+.search-bar button {
+  background-color: #0066cc;
+  color: white;
+  cursor: pointer;
+}
+
+
+.video1 {
+  animation: fadeInOut1 20s ease-in-out infinite;
+}
+
+.video2 {
+  animation: fadeInOut2 20s ease-in-out infinite;
+}
+
+.video3 {
+  animation: fadeInOut3 20s ease-in-out infinite;
+}
+
+@keyframes fadeInOut1 {
+  0%,5%{
+    opacity: 0.5;
+  }
+  5%, 30.33% {
+    opacity: 1;
+  }
+  33.34%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInOut2 {
+  0%, 30.33% {
+    opacity: 0;
+  }
+  33.34%, 63.66% {
+    opacity: 1;
+  }
+  66.67%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInOut3 {
+  0%,63.66% {
+    opacity:0;
+  }
+  66.67%, 100% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 2em;
+  }
+
+  .hero-section p {
+    font-size: 1em;
+  }
+
+  .search-bar {
+    flex-direction: column;
+  }
+}

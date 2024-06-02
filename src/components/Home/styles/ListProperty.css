@@ -1,0 +1,29 @@
+/* src/components/styles/ListProperty.css */
+.list-property-section {
+  padding: 4em 0;
+  background: #000;
+  color: white;
+  text-align: center;
+}
+
+.list-property-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1em;
+}
+
+.list-property-section button {
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 5px;
+  background-color: #0066cc;
+  color: white;
+  cursor: pointer;
+  margin-top: 1em;
+}
+
+@media (max-width: 768px) {
+  .list-property-section button {
+    width: 100%;
+  }
+}

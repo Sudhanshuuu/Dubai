@@ -1,0 +1,35 @@
+/* src/components/Services.css */
+.services-section {
+  padding: 4em 0;
+  background-color: #f9f9f9;
+}
+
+.services-section .container {
+  text-align: left;
+}
+
+.services-section h2 {
+  margin-bottom: 1em;
+}
+
+.services {
+  display: flex;
+  justify-content: space-between;
+}
+
+.service {
+  flex: 1;
+  margin-right: 1em;
+  background-color: white;
+  padding: 1em;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.service h3 {
+  margin-top: 0;
+}
+
+.service p {
+  margin-bottom: 0;
+}

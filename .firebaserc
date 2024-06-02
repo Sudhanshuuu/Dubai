@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "default": "dubai-26aae",
+    "dubai": "dubai-26aae"
+  },
+  "targets": {},
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
+}

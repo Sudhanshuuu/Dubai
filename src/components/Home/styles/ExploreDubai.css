@@ -1,0 +1,47 @@
+/* src/components/styles/ExploreDubai.css */
+.explore-dubai-section {
+  padding: 4em 0;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.explore-dubai-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1em;
+}
+
+.areas {
+  display: flex;
+  justify-content: space-around;
+  gap: 1em;
+  flex-wrap: wrap;
+}
+
+.area {
+  background: white;
+  padding: 1em;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 30%;
+  margin-bottom: 1em;
+}
+
+.area img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.area h3 {
+  margin-top: 0.5em;
+}
+
+.area p {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .area {
+    width: 100%;
+  }
+}

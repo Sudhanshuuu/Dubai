@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import gif from "../assets/gif.gif";
 
 function Navbar() {
   let [toggle, setToggle] = useState(true);
@@ -49,16 +50,18 @@ function Navbar() {
           <a href="#" className="duration-200 hover:text-[#919191] text-sm font-light">Find a Service</a>
           <a href='/' className="hover:text-indigo-600 hidden md:block">
             <img
-              src="https://www.group-ucs.com/assets/images/logo/UCS-LOGO.jpg"
+              src={gif}
               alt=""
+              className=" w-24"
             />
           </a>
           <div
             onMouseEnter={() => { handleDropdownMouseEnter("about") }}
             onMouseLeave={() => { handleDropdownMouseLeave("about") }}
+            className=" h-auto"
           >
             <div
-              className="duration-200 hover:text-[#919191] text-sm font-light relative"
+              className="duration-200 hover:text-[#919191] text-sm font-light relative ]"
             >
               Know Us
               {dropdownVisibleAbout && (
@@ -91,8 +94,8 @@ function Navbar() {
               )}
             </div>
           </div>
-          <button className="mx-2 my-2 bg-white text-sm font-light text-black px-6 py-2 transition duration-200 border border-white hover:border-black hover:text-black hover:bg-white rounded-lg md:border-none md:text-white md:bg-black">
-            List Your Property
+          <button className="mx-2 my-2 bg-white text-sm font-light text-black px-6 py-2 transition duration-200 border border-white hover:border-black hover:bg-[#919191] rounded-lg md:border-none md:text-white md:bg-black">
+            <span className=" font-semibold">+</span> List Your Property
           </button>
         </div>
       </div>

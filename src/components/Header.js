@@ -1,10 +1,13 @@
 import React, { useState } from "react";
-import gif from "../assets/gif.gif";
+import gif from "../assets/gif.png";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
+  let navigate = useNavigate();
   let [toggle, setToggle] = useState(true);
   let [dropdownVisibleAbout, setDropdownVisibleAbout] = useState(false);
   let [dropdownVisibleContact, setDropdownVisibleContact] = useState(false);
+  let [dropdownVisibleService, setDropdownVisibleService] = useState(false);
 
   function handleClick() {
     setToggle(!toggle);
@@ -17,6 +20,9 @@ function Navbar() {
     if (item === "contact") {
       setDropdownVisibleContact(true)
     }
+    if (item === "service") {
+      setDropdownVisibleService(true)
+    }
   }
 
   function handleDropdownMouseLeave(item) {
@@ -25,6 +31,9 @@ function Navbar() {
     }
     if (item === "contact") {
       setDropdownVisibleContact(false);
+    }
+    if (item === "service") {
+      setDropdownVisibleService(false);
     }
   }
 
@@ -52,13 +61,13 @@ function Navbar() {
             <img
               src={gif}
               alt=""
-              className=" w-24"
+              className=" w-16"
             />
           </a>
           <div
             onMouseEnter={() => { handleDropdownMouseEnter("about") }}
             onMouseLeave={() => { handleDropdownMouseLeave("about") }}
-            className=" h-12 flex flex-col items-center justify-center"
+            className=" md:h-12 flex flex-col items-center justify-center"
           >
             <div
               className="duration-200 hover:text-[#919191] text-sm font-light relative ]"
@@ -76,11 +85,28 @@ function Navbar() {
             </div>
           </div>
           <a href="#" className="duration-200 hover:text-[#919191] text-sm font-light">Developers</a>
-          <a href="#" className="duration-200 hover:text-[#919191] text-sm font-light">Services</a>
+          <div
+            onMouseEnter={() => { handleDropdownMouseEnter("service") }}
+            onMouseLeave={() => { handleDropdownMouseLeave("service") }}
+            className=" md:h-12 flex flex-col items-center justify-center"
+          >
+            <div
+              className="duration-200 hover:text-[#919191] text-sm font-light relative ]"
+            >
+              More Services
+              {dropdownVisibleService && (
+                <div className="absolute top-full left-[-30%] mt-1 w-40 bg-white text-black rounded-md">
+                  <a href="#" className="block px-4 py-2 hover:bg-gray-200">Holiday Home</a>
+                  <a href="#" className="block px-4 py-2 hover:bg-gray-200">Off Plan</a>
+                  <a href="#" className="block px-4 py-2 hover:bg-gray-200">Mortages</a>
+                </div>
+              )}
+            </div>
+          </div>
           <div
             onMouseEnter={() => { handleDropdownMouseEnter("contact") }}
             onMouseLeave={() => { handleDropdownMouseLeave("contact") }}
-            className=" h-12 flex flex-col items-center justify-center"
+            className=" md:h-12 flex flex-col items-center justify-center"
           >
             <div
               className="duration-200 hover:text-[#919191] text-sm font-light relative"
@@ -95,7 +121,7 @@ function Navbar() {
               )}
             </div>
           </div>
-          <button className="mx-2 my-2 bg-white text-sm font-light text-black px-6 py-2 transition duration-200 border border-white hover:border-black hover:bg-[#919191] rounded-lg md:border-none md:text-white md:bg-black">
+          <button onClick={() => { navigate('/listProperty') }} className="mx-2 my-2 bg-white text-sm font-light text-black px-6 py-2 transition duration-200 border border-white hover:border-black hover:bg-[#919191] rounded-lg md:border-none md:text-white md:bg-black">
             <span className=" font-semibold">+</span> List Your Property
           </button>
         </div>

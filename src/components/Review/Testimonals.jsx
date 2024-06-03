@@ -10,12 +10,12 @@ function Testimonial() {
 
     let [imgIndex, setImgindex] = useState(0);
 
-    let [reviews, setReviews] = useState([{ comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum hic fuga amet? Totam consectetur quis error nobis omnis magni impedit, quas tempore harum veritatis maxime labore ipsum hic sit molestias?", user: "Samir" }
-        , { comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum hic fuga amet? Totam consectetur quis error nobis omnis magni impedit, quas tempore harum veritatis maxime labore ipsum hic sit molestias? ", user: "Shyam" }
-        , { comment: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum hic fuga amet? Totam consectetur quis error nobis omnis magni impedit, quas tempore harum veritatis maxime labore ipsum hic sit molestias?", user: "Rohit" }
-        , { comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum hic fuga amet? Totam consectetur quis error nobis omnis magni impedit, quas tempore harum veritatis maxime labore ipsum hic sit molestias? ", user: "Raman" }
-        , { comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum hic fuga amet? Totam consectetur quis error nobis omnis magni impedit, quas tempore harum veritatis maxime labore ipsum hic sit molestias? ", user: "Riya" }
-        , { comment: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum hic fuga amet? Totam consectetur quis error nobis omnis magni impedit, quas tempore harum veritatis maxime labore ipsum hic sit molestias?", user: "Shreya" }]);
+    let [reviews, setReviews] = useState([{ comment: "The service in Dubai was absolutely exceptional. From the top-notch customer service to the impressive speed, every aspect was truly outstanding. Highly recommended!", user: "Samir" }
+        , { comment: "The service in Dubai was absolutely exceptional. From the top-notch customer service to the impressive speed, every aspect was truly outstanding. Highly recommended! ", user: "Shyam" }
+        , { comment: " The service in Dubai was absolutely exceptional. From the top-notch customer service to the impressive speed, every aspect was truly outstanding. Highly recommended!", user: "Rohit" }
+        , { comment: "The service in Dubai was absolutely exceptional. From the top-notch customer service to the impressive speed, every aspect was truly outstanding. Highly recommended! ", user: "Raman" }
+        , { comment: "The service in Dubai was absolutely exceptional. From the top-notch customer service to the impressive speed, every aspect was truly outstanding. Highly recommended! ", user: "Riya" }
+        , { comment: " The service in Dubai was absolutely exceptional. From the top-notch customer service to the impressive speed, every aspect was truly outstanding. Highly recommended!", user: "Shreya" }]);
 
 
     const NextArrow = ({ onClick }) => {

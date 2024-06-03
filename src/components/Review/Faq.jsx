@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Faq= () => {
+const Faq = () => {
     return (
         <section className="relative z-20 overflow-hidden bg-white dark:bg-dark py-[2%] *:font-sans">
             <div className=" mx-auto">
@@ -24,30 +24,42 @@ const Faq= () => {
                 <div className="mx-auto flex flex-wrap w-[90%] sm:w-[80%]">
                     <div className="w-full px-4 lg:w-1/2">
                         <AccordionItem
-                            header="How much time it take for you to contact back"
-                            text="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available ."
+                            header="What documents do I require to buy in Dubai?"
+                            text="Required Documents: Passport, Emirates ID, Sale Contract (Form F/MOU), No
+Objection Certificate (NOC), Proof of Payment, Original Title Deed, Verification
+Documents. Additional Considerations: Power of Attorney for remote transactions,
+Additional Documents for Mortgage Financing.
+."
                         />
                         <AccordionItem
-                            header="How much time it take for you to contact back"
-                            text="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available ."
+                            header="How much do I need to pay as a security deposit?"
+                            text="5% of the annual rent for unfurnished and 10% for furnished properties."
                         />
                         <AccordionItem
-                            header="How much time it take for you to contact back"
-                            text="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available ."
+                            header="Can I sublet my property once I have moved in?"
+                            text="The law permits tenants to lease the property to sub-tenants for profit or other legitimate
+purposes, provided this does not harm the original landlord or property owner. However,
+one key condition must be met: the written consent of the original landlord is mandatory
+for the tenant to proceed with subleasing.
+"
                         />
                     </div>
                     <div className="w-full px-4 lg:w-1/2">
                         <AccordionItem
-                            header="How much time it take for you to contact back"
-                            text="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available ."
+                            header="How can my Landlord increase the rent"
+                            text="- If your rent is between 11 percent and 20 per cent below the average market rate, a
+maximum increase of five per cent is permitted. If your rent is between 21 percent and 30
+per cent below the average market rate, a maximum increase of 10 per cent is permitted.
+"
                         />
                         <AccordionItem
-                            header="How much time it take for you to contact back"
-                            text="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available ."
+                            header="How is responsible of maintenance ?"
+                            text="- The landlord.."
                         />
                         <AccordionItem
-                            header="How much time it take for you to contact back"
-                            text="It takes 2-3 weeks to get your first blog post ready. That includes the in-depth research & creation of your monthly content marketing strategy that we do before writing your first blog post, Ipsum available ."
+                            header="Can I break the lease early?"
+                            text="The penalty is usually between one and two months' rent. In your situation, your landlord
+is asking what is normal in these circumstances."
                         />
                     </div>
                 </div>

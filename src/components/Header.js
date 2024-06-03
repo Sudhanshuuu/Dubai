@@ -58,7 +58,7 @@ function Navbar() {
           <div
             onMouseEnter={() => { handleDropdownMouseEnter("about") }}
             onMouseLeave={() => { handleDropdownMouseLeave("about") }}
-            className=" h-auto"
+            className=" h-12 flex flex-col items-center justify-center"
           >
             <div
               className="duration-200 hover:text-[#919191] text-sm font-light relative ]"
@@ -80,6 +80,7 @@ function Navbar() {
           <div
             onMouseEnter={() => { handleDropdownMouseEnter("contact") }}
             onMouseLeave={() => { handleDropdownMouseLeave("contact") }}
+            className=" h-12 flex flex-col items-center justify-center"
           >
             <div
               className="duration-200 hover:text-[#919191] text-sm font-light relative"

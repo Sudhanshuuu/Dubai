@@ -93,7 +93,7 @@ function Navbar() {
             <div
               className="duration-200 hover:text-[#919191] text-sm font-light relative ]"
             >
-              More Services
+             Services
               {dropdownVisibleService && (
                 <div className="absolute top-full left-[-30%] mt-1 w-40 bg-white text-black rounded-md">
                   <a href="#" className="block px-4 py-2 hover:bg-gray-200">Holiday Home</a>

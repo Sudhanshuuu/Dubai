@@ -11,8 +11,7 @@ export default function CeoMessage() {
               <p className="text-base font-semibold leading-7">Best Service in Whole Dubai</p>
               <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">About Us</h1>
               <p className="mt-6 text-xl leading-8 text-gray-700 text-left">
-                Aliquet nec orci mattis amet quisque ullamcorper neque, nibh sem. At arcu, sit dui mi, nibh dui, diam
-                eget aliquam. Quisque id at vitae feugiat egestas.
+                In the market for a new place? We can help!
               </p>
             </div>
           </div>
@@ -28,17 +27,24 @@ export default function CeoMessage() {
           <div className="lg:pr-4">
             <div className="max-w-xl text-base leading-7 text-gray-700 lg:max-w-lg">
               <p>
-                Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet
-                vitae sed turpis id. Id dolor praesent donec est. Odio penatibus risus viverra tellus varius sit neque
-                erat velit. Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris
-                semper sed amet vitae sed turpis id.
+                Whether you're looking to buy your dream
+                investment or find the perfect rental,our team is here to assist you. We have a particular focus on
+                off-plan properties, those that are still being developed. That means you can secure your future
+                home at today's prices and be among the first to move in when it's complete.
               </p>
               <p className="mt-8">
-                Et vitae blandit facilisi magna lacus commodo. Vitae sapien duis odio id et. Id blandit molestie auctor
-                fermentum dignissim. Lacus diam tincidunt ac cursus in vel. Mauris varius vulputate et ultrices hac
-                adipiscing egestas. Iaculis convallis ac tempor et ut. Ac lorem vel integer orci.
+                Our team members
+                boast over decades of combined experience, so you can be confident you're getting expert
+                guidance. We're also a forward-thinking group that believes in constantly learning and adapting
+                to provide the best possible service to our clients. We want the best for you, that's why you
+                should choose UCS Prime Real Estate
               </p>
-            
+              <p className="mt-8">
+                First-time buyer, seasoned investor, or seeking your forever Dubai home? Our dedicated
+                community sales consultants are here to guide you seamlessly through the entire process. We
+                even offer a comprehensive step-by-step buyer's guide for a smooth and informative experience
+              </p>
+
             </div>
           </div>
         </div>

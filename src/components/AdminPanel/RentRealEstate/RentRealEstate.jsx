@@ -7,10 +7,11 @@ const RentRealEstate = ({ createModal }) => {
     const [modalOpen, setModalOpen] = useState(false);
     const [selectedId, setSelectedId] = useState(null);
 
+
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get("http://localhost:3005/realEstate?type=Rent");
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}/realEstate?type=Rent`);
                 setData(response.data);
             } catch (error) {
                 console.error('Error:', error);
@@ -27,7 +28,7 @@ const RentRealEstate = ({ createModal }) => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get("http://localhost:3005/realEstate?type=Rent");
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/realEstate?type=Rent`);
             setData(response.data);
         } catch (error) {
             console.error('Error:', error);
@@ -36,7 +37,7 @@ const RentRealEstate = ({ createModal }) => {
 
     async function deleteProperty(id) {
         try {
-            await axios.delete(`http://localhost:3005/realEstate/${id}`);
+            await axios.delete(`${process.env.REACT_APP_API_URL}/realEstate/${id}`);
             fetchData();
         } catch (error) {
             console.error('Error:', error);

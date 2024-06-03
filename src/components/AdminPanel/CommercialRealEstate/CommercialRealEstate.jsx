@@ -10,7 +10,7 @@ const CommercialRealEstate = ({ createModal }) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get("http://localhost:3005/realEstate?type=Commercial");
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}/realEstate?type=Commercial`);
                 setData(response.data);
             } catch (error) {
                 console.error('Error:', error);
@@ -27,7 +27,7 @@ const CommercialRealEstate = ({ createModal }) => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get("http://localhost:3005/realEstate?type=Rent");
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/realEstate?type=Commercial`);
             setData(response.data);
         } catch (error) {
             console.error('Error:', error);
@@ -36,7 +36,7 @@ const CommercialRealEstate = ({ createModal }) => {
 
     async function deleteProperty(id) {
         try {
-            await axios.delete(`http://localhost:3005/realEstate/${id}`);
+            await axios.delete(`${process.env.REACT_APP_API_URL}/realEstate/${id}`);
             fetchData();
         } catch (error) {
             console.error('Error:', error);

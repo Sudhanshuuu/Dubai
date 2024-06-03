@@ -14,13 +14,14 @@ const Properties = () => {
 
   useEffect(() => {
     async function getData() {
-      await axios.get(`http://localhost:3005/realEstate?display=handPick`)
+      await axios.get(`${process.env.REACT_APP_API_URL}/realEstate?display=handPick`)
         .then(response => {
 
           setBuyProperty(response.data.filter((d) => { return d.type === "Buy" && d.status === "approved" }))
           setRentProperty(response.data.filter((d) => { return d.type === "Rent" && d.status === "approved" }))
           setCommercialProperty(response.data.filter((d) => { return d.type === "Commercial" && d.status === "approved" }))
           setHolidayProperty(response.data.filter((d) => { return d.type === "HolidayHome" && d.status === "approved" }))
+          console.log(response.data)
         })
         .catch(error => {
           console.error('Error:', error);
@@ -132,7 +133,7 @@ const Properties = () => {
                 className="bg-white py-4 rounded shadow-md"
               >
                 <img
-                  src="https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                  src={`${process.env.REACT_APP_IMG_URL}/${property.images}`}
                   alt="Property"
                   className="mb-4"
                 />

@@ -51,7 +51,7 @@ export const CreateRealEstate = ({ isOpen, onClose }) => {
         });
 
         try {
-            const response = await axios.post(`http://localhost:3005/realEstate/`, data, {
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/realEstate/`, data, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }

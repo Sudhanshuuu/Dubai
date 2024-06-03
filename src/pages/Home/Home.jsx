@@ -12,15 +12,14 @@ import TopProperty from "../../components/Home/TopProperty";
 import Navbar from "../../components/Header";
 
 function Home() {
- 
-   let imagePath = 'http://localhost:3005'
+
 
     return (<div>
-        <Navbar/>
+        <Navbar />
         <HeroSection />
-        <BuyProperty imagePath={imagePath} />
-        <TopProperty imagePath={imagePath}/>
-        <Properties imagePath={imagePath}/>
+        <BuyProperty />
+        <TopProperty />
+        <Properties />
         <About />
         <ListProperty />
         <VideoSection />

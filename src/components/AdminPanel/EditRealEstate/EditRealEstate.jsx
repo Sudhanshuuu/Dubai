@@ -27,7 +27,7 @@ export const EditRealEstate = ({ isOpen, onClose ,id}) => {
 
     useEffect(() => {
         async function getData() {
-            await axios.get(`http://localhost:3005/realEstate/${id}`)
+            await axios.get(`${process.env.REACT_APP_API_URL}/realEstate/${id}`)
                 .then(response => {
                     setFormData(response.data);
                 })
@@ -67,7 +67,7 @@ export const EditRealEstate = ({ isOpen, onClose ,id}) => {
         });
 
         try {
-            const response = await axios.put(`http://localhost:3005/realEstate/${id}`, data, {
+            const response = await axios.put(`${process.env.REACT_APP_API_URL}/realEstate/${id}`, data, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }

@@ -10,7 +10,7 @@ function TopProperty({ imagePath }) {
 
     useEffect(() => {
         async function getData() {
-            await axios.get(`http://localhost:3005/realEstate?display=feature`)
+            await axios.get(`${process.env.REACT_APP_API_URL}/realEstate?display=feature`)
                 .then(response => {
                     setBuyProperty(response.data.filter((property) => { return property.status === "approved" }));
                 })
@@ -58,7 +58,7 @@ function TopProperty({ imagePath }) {
                         <div className="px-8">
                             <div className="border border-[#E9E9E9]-400 bg-white py-4  rounded shadow-md ">
                                 <div className="relative">
-                                    <img src={`${imagePath}/${property.images[0]}`} alt="dubaiPhoto" />
+                                    <img src={`${process.env.REACT_APP_IMG_URL}/${property.images[0]}`} alt="dubaiPhoto" />
                                 </div>
                                 <div className="flex flex-col p-[4%]">
                                     <div className="text-left text-xl">{property.name}</div>

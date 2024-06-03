@@ -10,7 +10,7 @@ const RealEstate = ({ createModal }) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get("http://localhost:3005/realEstate");
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}/realEstate`);
                 setData(response.data);
             } catch (error) {
                 console.error('Error:', error);
@@ -27,7 +27,7 @@ const RealEstate = ({ createModal }) => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get("http://localhost:3005/realEstate");
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/realEstate`);
             setData(response.data);
         } catch (error) {
             console.error('Error:', error);
@@ -36,12 +36,13 @@ const RealEstate = ({ createModal }) => {
 
     async function deleteProperty(id) {
         try {
-            await axios.delete(`http://localhost:3005/realEstate/${id}`);
+            await axios.delete(`${process.env.REACT_APP_API_URL}/realEstate/${id}`);
             fetchData();
         } catch (error) {
             console.error('Error:', error);
         }
     }
+
 
     return (
         <div className="relative overflow-x-auto shadow-md md:rounded-lg">

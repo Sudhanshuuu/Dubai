@@ -12,7 +12,7 @@ const Enquiry = () => {
             "phone": e.target.phone.value
         };
 
-        await axios.post("http://localhost:3005/enquiry", formData)
+        await axios.post(`${process.env.REACT_APP_API_URL}/enquiry`, formData)
             .then(response => {
                 console.log("Response Sent");
 
@@ -63,9 +63,8 @@ const Enquiry = () => {
                                         </div>
                                     </div>
                                     <p className="my-6 text-base leading-relaxed text-body-color dark:text-dark-6">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                        do eius tempor incididunt ut labore e dolore magna aliqua. Ut
-                                        enim adiqua minim veniam quis nostrud exercitation ullamco
+                                        We'd love to hear from you! Simply fill out the form below with your contact information and a
+                                        brief description of your needs.
                                     </p>
                                 </div>
                             </div>
@@ -935,7 +934,7 @@ const Enquiry = () => {
                                     Our Location
                                 </h4>
                                 <p className="text-body-color text-center text-sm dark:text-dark-6">
-                                    99 S.t Jomblo Park Pekanbaru 28292. Indonesia
+                                    Reef Tower, Cluster O Floor 6 Office 601 , Dubai
                                 </p>
                             </div>
                         </div>
@@ -975,7 +974,7 @@ const Enquiry = () => {
                                     Phone Number
                                 </h4>
                                 <p className="text-base text-center text-body-color dark:text-dark-6">
-                                    (+62)81 414 257 9980
+                                    +971 4 5214900
                                 </p>
                             </div>
                         </div>
@@ -1000,7 +999,7 @@ const Enquiry = () => {
                                     Email Address
                                 </h4>
                                 <p className="text-body-color text-center text-sm dark:text-dark-6">
-                                    info@yourdomain.com
+                                    me@ucs-mail.com
                                 </p>
                             </div>
                         </div>

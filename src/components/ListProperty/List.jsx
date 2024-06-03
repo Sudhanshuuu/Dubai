@@ -16,7 +16,7 @@ function List() {
             "address": e.target.address.value,
         };
 
-        await axios.post("http://localhost:3005/listAProperty", formData)
+        await axios.post(`${process.env.REACT_APP_API_URL}/listAProperty`, formData)
             .then(response => {
                 console.log("Response Sent");
 
@@ -34,15 +34,15 @@ function List() {
                         <div className="w-full px-4 lg:w-1/2 xl:w-6/12">
                             <div className="mb-12 max-w-[570px] lg:mb-0">
                                 <span className="mb-4 block text-base font-semibold text-primary">
-                                    List A Property
+                                    List Your Property with UCS Prime Team
                                 </span>
                                 <h2 className="mb-6 text-[32px] font-bold uppercase text-dark dark:text-white sm:text-[40px] lg:text-[36px] xl:text-[40px]">
-                                    List Your Property with White Real Estate
+                                    Are You Looking to Buy or Sell Property in Dubai?
                                 </h2>
                                 <p className="mb-9 text-base leading-relaxed text-body-color dark:text-dark-6">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                    do eius tempor incididunt ut labore e dolore magna aliqua. Ut
-                                    enim adiqua minim veniam quis nostrud exercitation ullamco
+                                    We'd love to hear from you! Simply fill out the form below with your contact information and a
+                                    brief description of your property needs. Whether you're interested in buying, selling, or have a
+                                    general inquiry about the Dubai property market,our team will be happy to assist you
                                 </p>
                                 <div className="mb-8 flex  w-full">
                                     <div className="mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden rounded bg-primary/5 text-primary sm:h-[70px] sm:max-w-[70px]">

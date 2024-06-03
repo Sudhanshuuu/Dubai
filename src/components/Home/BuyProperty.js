@@ -63,7 +63,7 @@ function BuyProperty({ imagePath }) {
                             <div className="p-8 ">
                                 <div className="border border-[#E9E9E9]-400 bg-white py-4  rounded shadow-md ">
                                     <div className="relative">
-                                        <img src={`${process.env.REACT_APP_IMG_URL}/${property.images[0]}`} alt="dubaiPhoto" className=" rounded-sm" />
+                                        <img src={`${process.env.REACT_APP_IMG_URL}/${property.images[0]}`} alt="dubaiPhoto" className="h-[50vh] object-cover w-[100%] rounded-sm" />
                                     </div>
                                     <div className="flex flex-col px-[3%]">
                                         <div className="text-left text-xl font-semibold pt-4 text-black sm:text-[1.7rem]">{property.price} AED</div>

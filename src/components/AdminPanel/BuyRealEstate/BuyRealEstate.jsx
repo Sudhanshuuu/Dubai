@@ -12,6 +12,7 @@ const BuyRealEstate = ({ createModal }) => {
             try {
                 const response = await axios.get(`${process.env.REACT_APP_API_URL}/realEstate?type=Buy`);
                 setData(response.data);
+                console.log(response.data)
             } catch (error) {
                 console.error('Error:', error);
             }

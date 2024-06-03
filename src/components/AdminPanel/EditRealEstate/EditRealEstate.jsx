@@ -1,7 +1,7 @@
-import React, { useState , useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-export const EditRealEstate = ({ isOpen, onClose ,id}) => {
+export const EditRealEstate = ({ isOpen, onClose, id }) => {
 
     const [formData, setFormData] = useState({
         name: '',
@@ -30,6 +30,7 @@ export const EditRealEstate = ({ isOpen, onClose ,id}) => {
             await axios.get(`${process.env.REACT_APP_API_URL}/realEstate/${id}`)
                 .then(response => {
                     setFormData(response.data);
+                    console.log(response.data)
                 })
                 .catch(error => {
                     console.error('Error:', error);
@@ -88,7 +89,7 @@ export const EditRealEstate = ({ isOpen, onClose ,id}) => {
                     <div className="fixed inset-0 bg-black opacity-50"></div>
                     <div className="bg-white p-8 rounded-lg shadow-lg z-50">
                         <div className="flex mb-3 justify-between">
-                            <div className=' font-semibold'>Create</div>
+                            <div className=' font-semibold'>Edit</div>
                             <button onClick={onClose} className="text-gray-500 hover:text-gray-700 focus:outline-none">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -106,12 +107,12 @@ export const EditRealEstate = ({ isOpen, onClose ,id}) => {
                                         <label className='my-1 text-sm text-left' htmlFor='price'>Price <span className='text-red-500'>*</span></label>
                                         <input type="text" name='price' value={formData.price} onChange={handleChange} className='border px-2 w-[100%] py-1 rounded-xl text-sm' />
                                     </div>
-                                <div className='flex flex-1 flex-col my-2 mx-2'>
-                                <label className='my-1 text-sm text-left' htmlFor='images'>Images <span className='text-red-500'>*</span></label>
-                                    <input type='file' name='images' id='images' multiple onChange={handleChange} className=" w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer   focus:outline-none" />
+                                    <div className='flex flex-1 flex-col my-2 mx-2'>
+                                        <label className='my-1 text-sm text-left' htmlFor='images'>Images <span className='text-red-500'>*</span></label>
+                                        <input type='file' name='images' id='images' multiple onChange={handleChange} className=" w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer   focus:outline-none" />
+                                    </div>
                                 </div>
-                                </div>
-            
+
                                 <div className='flex'>
                                     <div className='flex flex-1 flex-col my-2 mx-2'>
                                         <label className='my-1 text-sm text-left' htmlFor='desc'>Description <span className='text-red-500'>*</span></label>

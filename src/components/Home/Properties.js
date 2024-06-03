@@ -135,7 +135,7 @@ const Properties = () => {
                 <img
                   src={`${process.env.REACT_APP_IMG_URL}/${property.images}`}
                   alt="Property"
-                  className="mb-4"
+                  className="mb-4 h-[40vh] object-cover w-[100%]"
                 />
                 <h3 className="font-bold text-xl mb-2">{property.name}</h3>
                 {property.type === "Buy" && (<p>{property.price} AED</p>)}

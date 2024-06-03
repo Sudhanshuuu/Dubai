@@ -8,7 +8,6 @@ import AdminCommercialRealEstate from "./AdminPages/AdminCommercialEstate/AdminC
 import AdminContact from "./AdminPages/AdminContact/AdminContact";
 import AdminHolidayRealEstate from "./AdminPages/AdminHolidayRealEstate/AdminHolidayRealEstate";
 
-// Lazy-loaded components
 const Home = lazy(() => import("./Home/Home"));
 const About = lazy(() => import("./About/About"));
 const Video = lazy(() => import("./Video/Video"));

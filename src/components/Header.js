@@ -121,7 +121,7 @@ function Navbar() {
               )}
             </div>
           </div>
-          <button onClick={() => { navigate('/listProperty') }} className="mx-2 my-2 bg-white text-sm font-light text-black px-6 py-2 transition duration-200 border border-white hover:border-black hover:bg-[#919191] rounded-lg md:border-none md:text-white md:bg-black">
+          <button onClick={() => { navigate('/listProperty') }} className="mx-1 my-2 bg-white text-sm font-light text-black px-6 py-2 transition duration-200 border border-white hover:border-black hover:bg-[#919191] rounded-lg md:border-none md:text-white md:bg-black">
             <span className=" font-semibold">+</span> List Your Property
           </button>
         </div>

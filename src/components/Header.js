@@ -95,7 +95,7 @@ function Navbar() {
             >
              Services
               {dropdownVisibleService && (
-                <div className="absolute top-full left-[-30%] mt-1 w-40 bg-white text-black rounded-md">
+                <div className="absolute top-full left-[-90%] mt-1 w-40 bg-white text-black rounded-md">
                   <a href="#" className="block px-4 py-2 hover:bg-gray-200">Holiday Home</a>
                   <a href="#" className="block px-4 py-2 hover:bg-gray-200">Off Plan</a>
                   <a href="#" className="block px-4 py-2 hover:bg-gray-200">Mortages</a>

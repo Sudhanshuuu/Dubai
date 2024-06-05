@@ -67,8 +67,8 @@ function TopProperty({ imagePath }) {
                                         <div className="text-left text-sm text-[#919191] underline decoration-[#919191]">{property.location}</div>
                                     </div>
                                     <div className="my-4 text-left">
-                                        <button className="py-2 px-4 my-1 mr-2 text-sm border border-blue-500 text-blue-500 hover:bg-blue-600 hover:text-white duration-200 sm:my-2">APARTMENTS</button>
-                                        <button className="py-2 px-4 my-1 mr-2 text-sm border border-blue-500 text-blue-500 hover:bg-blue-600 hover:text-white duration-200 sm:my-2">TOWNHOUSES</button>
+                                        <button className="py-2 px-4 my-1 mr-2 text-sm border border-[#173D73] text-[#173D73] hover:bg-[#173D73] hover:text-white duration-200 sm:my-2">APARTMENTS</button>
+                                        <button className="py-2 px-4 my-1 mr-2 text-sm border border-[#173D73] text-[#173D73] hover:bg-[#173D73] hover:text-white duration-200 sm:my-2">TOWNHOUSES</button>
                                     </div>
                                 </div>
                             </div>

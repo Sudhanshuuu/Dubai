@@ -143,7 +143,7 @@ const HeroSection = () => {
               onChange={(e) => setPropertyType(e.target.value)}
             />
             <button
-              className="bg-black text-white p-2 rounded flex-shrink-0"
+              className="bg-[#173D73] text-white p-2 rounded flex-shrink-0"
               onClick={handleSearch}
             >
               Search

@@ -3,6 +3,11 @@ import axios from 'axios';
 
 export const EditRealEstate = ({ isOpen, onClose, id }) => {
 
+    let [features, setFeatures] = useState([]);
+    let [feature, setFeature] = useState("");
+    let [dataFeature, setDataFeature] = useState("");
+
+
     const [formData, setFormData] = useState({
         name: '',
         desc: '',
@@ -57,15 +62,23 @@ export const EditRealEstate = ({ isOpen, onClose, id }) => {
 
         const data = new FormData();
 
+
         Object.keys(formData).forEach(key => {
             if (key === 'images') {
                 for (let i = 0; i < formData.images.length; i++) {
                     data.append('images', formData.images[i]);
                 }
-            } else {
+            }
+
+
+            else {
                 data.append(key, formData[key]);
             }
         });
+
+
+
+
 
         try {
             const response = await axios.put(`${process.env.REACT_APP_API_URL}/realEstate/${id}`, data, {
@@ -80,6 +93,22 @@ export const EditRealEstate = ({ isOpen, onClose, id }) => {
 
         onClose();
     };
+
+    function handleFeatureSubmit(e) {
+        e.preventDefault();
+        setFeatures((prev) => { return [...prev, feature] });
+        features.map((f) => {
+            console.log(f)
+            setDataFeature((prev) => { return (f + ' & ' + prev) })
+        })
+        setFormData({ ...formData, feature: dataFeature });
+
+    }
+
+    function handleChangeFeature(e) {
+        setFeature(e.target.value);
+
+    }
 
 
     return (
@@ -201,6 +230,21 @@ export const EditRealEstate = ({ isOpen, onClose, id }) => {
                                         <input className='w-[100%] text-sm border rounded-xl px-2 py-1' type="number" name='square' value={formData.square} onChange={handleChange} />
                                     </div>
                                 </div>
+                                <div className='hidden sm:flex flex-1 items-center my-4'>
+                                    <label className='my-1 mx-4 text-left text-sm sm:block' htmlFor='feature'>Add Feature</label>
+                                    <div className='flex'>
+                                        <input className='border w-[100%]  px-2 py-1 text-sm' type="text" value={feature} onChange={handleChangeFeature} />
+                                        <button onClick={handleFeatureSubmit} className=' px-2 bg-black text-white'>+</button>
+
+                                    </div>
+                                    <div className='flex'>
+
+                                        {features.map((f) => {
+                                            return (<div className='ml-4 px-3 py-1 text-sm rounded-xl border'>{f}</div>)
+                                        })}
+                                    </div>
+
+                                </div>
                                 <div className='flex flex-col my-4 sm:flex-row'>
                                     <div className='flex flex-1 flex-col mx-4'>
                                         <label className='my-1 text-left text-sm' htmlFor='listedBy'>Listed By <span className=' text-red-500'>*</span></label>
@@ -213,10 +257,6 @@ export const EditRealEstate = ({ isOpen, onClose, id }) => {
                                     <div className='flex flex-1 flex-col mx-4'>
                                         <label className='hidden my-1 text-left text-sm sm:block' htmlFor='number'>Number <span className=' text-red-500'>*</span></label>
                                         <input className='border my-[1px] w-[100%] rounded-xl px-2 py-1 text-sm' type="number" name='number' value={formData.number} onChange={handleChange} />
-                                    </div>
-                                    <div className='flex flex-1 flex-col mx-4'>
-                                        <label className='hidden my-1 text-left text-sm sm:block' htmlFor='feature'>Feature</label>
-                                        <input className='border my-[1px] w-[100%] rounded-xl px-2 py-1 text-sm' type="text" name='feature' value={formData.feature} onChange={handleChange} />
                                     </div>
                                 </div>
                                 <div>

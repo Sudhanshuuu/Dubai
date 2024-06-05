@@ -7,10 +7,12 @@ import bathtubPng from "../../assets/bathtub.png";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useNavigate } from "react-router-dom";
 
 function BuyProperty({ imagePath }) {
 
     let [BuyProperty, setBuyProperty] = useState([]);
+    let navigate = useNavigate();
 
     useEffect(() => {
         async function getData() {
@@ -26,6 +28,10 @@ function BuyProperty({ imagePath }) {
         getData();
 
     }, [BuyProperty]);
+
+    function handleClick(id) {
+        navigate(`/property/${id}`)
+    }
 
     const settings = {
         dots: true,
@@ -60,7 +66,7 @@ function BuyProperty({ imagePath }) {
                 {
                     BuyProperty.map((property) => {
                         return (
-                            <div className="p-8 ">
+                            <div className="p-8 " onClick={() => { handleClick(property._id) }}>
                                 <div className="border border-[#E9E9E9]-400 bg-white py-4  rounded shadow-md ">
                                     <div className="relative">
                                         <img src={`${process.env.REACT_APP_IMG_URL}/${property.images[0]}`} alt="dubaiPhoto" className="h-[50vh] object-cover w-[100%] rounded-sm" />

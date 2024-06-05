@@ -87,7 +87,7 @@ const Properties = () => {
         <div className="flex justify-center mb-8 mx-6">
           <button
             className={`mr-1 sm:mr-4 py-2 px-3 rounded ${selectedCategory === "rent"
-              ? "bg-blue-500 text-white"
+              ? "bg-[#173D73] text-white"
               : "bg-gray-200 text-gray-700"
               }`}
             onClick={() => setSelectedCategory("rent")}
@@ -96,7 +96,7 @@ const Properties = () => {
           </button>
           <button
             className={`mr-1 sm:mr-4 py-2 px-4 rounded ${selectedCategory === "buy"
-              ? "bg-blue-500 text-white"
+              ? "bg-[#173D73] text-white"
               : "bg-gray-200 text-gray-700"
               }`}
             onClick={() => setSelectedCategory("buy")}
@@ -105,7 +105,7 @@ const Properties = () => {
           </button>
           <button
             className={`mr-1 sm:mr-4 py-2 px-4 rounded ${selectedCategory === "holidayHome"
-              ? "bg-blue-500 text-white"
+              ? "bg-[#173D73] text-white"
               : "bg-gray-200 text-gray-700"
               }`}
             onClick={() => setSelectedCategory("holidayHome")}

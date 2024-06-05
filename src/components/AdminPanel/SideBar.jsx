@@ -7,11 +7,11 @@ function SideBar() {
     let { setLoggedIn } = useContext(AuthContext);
     let navigate = useNavigate();
 
-    return (<div class="fixed hidden md:flex flex-col h-screen top-0 left-0  bg-white border-r w-[15%]">
+    return (<div class="fixed hidden md:flex flex-col h-screen top-0 left-0  bg-white border-r w-[15%]" >
         <div class="flex items-center justify-center h-14 border-b">
             <div>Real Estate Co.</div>
         </div>
-        <div class="overflow-y-auto overflow-x-hidden flex-grow">
+        <div class="overflow-y-auto overflow-x-hidden flex-grow" id="style-2">
             <ul class="flex flex-col py-4 space-y-1">
                 <li class="px-5">
                     <div class="flex flex-row items-center h-8">

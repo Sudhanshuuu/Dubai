@@ -2,24 +2,34 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { EditRealEstate } from '../EditRealEstate/EditRealEstate';
 
-const RentRealEstate = ({ createModal }) => {
+
+const RentRealEstate = ({ createModal, query }) => {
     const [data, setData] = useState([]);
     const [modalOpen, setModalOpen] = useState(false);
     const [selectedId, setSelectedId] = useState(null);
-
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await axios.get(`${process.env.REACT_APP_API_URL}/realEstate?type=Rent`);
                 setData(response.data);
+                if (query.name) {
+                    setData(response.data.filter((data) => {
+                        return data.name.includes(query.name);
+                    }))
+                }
+                if (query.display) {
+                    setData(response.data.filter((data) => {
+                        return data.display === query.display;
+                    }))
+                }
             } catch (error) {
                 console.error('Error:', error);
             }
         };
 
         fetchData();
-    }, [modalOpen, createModal]);
+    }, [modalOpen, createModal, query]);
 
     const openModal = (id) => {
         setSelectedId(id);
@@ -44,9 +54,10 @@ const RentRealEstate = ({ createModal }) => {
         }
     }
 
+
     return (
         <div className="relative overflow-x-auto shadow-md md:rounded-lg">
-            <table className="w-[80vw] ml-[8vw] text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 sm:ml-0">
+            <table className="w-[95%] md:w-[80vw] text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 md:ml-0">
                 <thead className={`text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 `}>
                     <tr>
                         <th scope="col" className="px-6 py-3 text-sm">Name</th>
@@ -55,7 +66,6 @@ const RentRealEstate = ({ createModal }) => {
                         <th scope="col" className="px-6 py-3 text-sm hidden lg:table-cell">Price</th>
                         <th scope="col" className="px-6 py-3 hidden text-sm sm:table-cell">Status</th>
                         <th scope="col" className="px-6 py-3 text-sm hidden md:table-cell">Display</th>
-                        <th scope="col" className="px-6 py-3 text-sm hidden md:table-cell">Message</th>
                         <th scope="col" className="py-3 text-sm">Operations</th>
                     </tr>
                 </thead>
@@ -81,7 +91,6 @@ const RentRealEstate = ({ createModal }) => {
                                 {data.display === "feature" && <span>Top 10 Properties</span>}
                                 {data.display === "handPick" && <span >Handpicked Properties</span>}
                             </td>
-                            <td className="px-6 py-2 hidden md:py-4 md:table-cell">{data.message.slice(0, 10)} ....</td>
                             <td className="px-4 flex flex-col py-2 md:px-0 md:py-2">
                                 <button className='bg-gray-600 px-4 py-2 my-1 mx-1 text-white rounded-xl duration-300 hover:bg-[#919191]' onClick={() => openModal(data._id)}>Edit/View More</button>
                                 <button className='bg-red-500 px-4 py-2 my-1 mx-1 text-white rounded-xl duration-300 hover:bg-red-400' onClick={() => deleteProperty(data._id)}>Delete</button>

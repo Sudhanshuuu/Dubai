@@ -35,7 +35,7 @@ const VideoSection = () => {
               Real Estate. So trust us when we say with ,
               you've got our support from start to finish & beyond!
             </p>
-            <button className="mx-auto py-4 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 transition duration-300 w-[35%]">
+            <button className="mx-auto py-4 bg-[#173D73] text-white rounded-lg shadow-md  transition duration-300 w-[35%]">
               More Videos
             </button>
           </div>

@@ -39,7 +39,7 @@ const ListProperty = () => {
         </p>
 
         <div className="flex justify-center">
-          <button className="px-6 py-3 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-300">
+          <button className="px-6 py-3 bg-[#173D73] text-white rounded transition duration-300">
             Book a Valuation
           </button>
         </div>

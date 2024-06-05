@@ -3,22 +3,12 @@ import React from "react";
 const Footer = () => {
   return (
     <footer className="bg-black text-center text-white *:font-sans">
-      <div className="flex items-center justify-center npm p-6 dark:border-neutral-500 lg:justify-between">
+      <div className="flex items-center  npm p-6 dark:border-neutral-500">
         <div className="mr-12 hidden lg:block">
           <span>Get connected with us on social networks:</span>
         </div>
         {/* <!-- Social network icons container --> */}
-        <div className="flex justify-center">
-          <a className="mr-6 text-white dark:text-neutral-200">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
-            </svg>
-          </a>
+        <div className="flex justify-center items-center">
           <a className="mr-6 text-white dark:text-neutral-200">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -118,33 +108,9 @@ const Footer = () => {
                 Send us your CV
               </a>
             </p>
-            <p>
-              <a className="text-white dark:text-neutral-200">
-                Make a complaint
-              </a>
-            </p>
+
           </div>
           {/* <!-- Useful links section --> */}
-          <div className="">
-            <h6 className="mb-4 flex justify-center font-semibold uppercase md:justify-start">
-              Site
-            </h6>
-            <p className="mb-4">
-              <a className="text-white dark:text-neutral-200">
-                Terms & Conditions
-              </a>
-            </p>
-            <p className="mb-4">
-              <a className="text-white dark:text-neutral-200">
-                Privacy policy
-              </a>
-            </p>
-            <p className="mb-4">
-              <a className="text-white dark:text-neutral-200">
-                Cookie policy
-              </a>
-            </p>
-          </div>
           <div className="">
             <h6 className="mb-4 flex justify-center font-semibold uppercase md:justify-start">
               Service
@@ -165,6 +131,22 @@ const Footer = () => {
               </a>
             </p>
           </div>
+          <div className="">
+            <h6 className="mb-4 flex justify-center font-semibold uppercase md:justify-start">
+              Site
+            </h6>
+            <p className="mb-4">
+              <a className="text-white dark:text-neutral-200">
+                Terms & Conditions
+              </a>
+            </p>
+            <p className="mb-4">
+              <a className="text-white dark:text-neutral-200">
+                Privacy policy
+              </a>
+            </p>
+
+          </div>
           {/* <!-- Contact section --> */}
           <div>
             <h6 className="mb-4 flex justify-center font-semibold uppercase md:justify-start">
@@ -175,7 +157,7 @@ const Footer = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="currentColor"
-                className="mr-3 h-5 w-5"
+                className="mr-3 h-8 w-8"
               >
                 <path d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z" />
                 <path d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z" />
@@ -209,7 +191,7 @@ const Footer = () => {
               </svg>
               +971 4 5214900
             </p>
-          
+
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import gif from "../assets/gif.png";
+import gif from "../assets/gif.gif";
 import { useNavigate } from "react-router-dom";
 
 function Navbar() {

@@ -4,6 +4,7 @@ import locationPng from "../../assets/location.png";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useNavigate } from "react-router-dom";
 
 function TopProperty({ imagePath }) {
     let [BuyProperty, setBuyProperty] = useState([]);
@@ -49,16 +50,18 @@ function TopProperty({ imagePath }) {
         ],
     };
 
+    let navigate = useNavigate();
+
     return (<div className="py-8 px-[4%] sm:px-[8%] md:py-[4%] *:font-sans">
         <div className="text-2xl font-bold mb-6 sm:text-left md:text-4xl sm:pl-[2%]">Top 10 Properties In Dubai</div>
         <Slider {...settings}>
             {
                 BuyProperty.map((property) => {
                     return (
-                        <div className="px-8">
+                        <div onClick={() => { navigate(`property/${property._id}`) }} className="px-8">
                             <div className="border border-[#E9E9E9]-400 bg-white py-4  rounded shadow-md ">
                                 <div className="relative">
-                                    <img src={`${process.env.REACT_APP_IMG_URL}/${property.images[0]}`} alt="dubaiPhoto" className="h-[40vh] object-cover w-[100%]"/>
+                                    <img src={`${process.env.REACT_APP_IMG_URL}/${property.images[0]}`} alt="dubaiPhoto" className="h-[40vh] object-cover w-[100%]" />
                                 </div>
                                 <div className="flex flex-col p-[4%]">
                                     <div className="text-left text-xl">{property.name}</div>

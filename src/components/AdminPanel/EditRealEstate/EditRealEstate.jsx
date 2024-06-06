@@ -35,17 +35,16 @@ export const EditRealEstate = ({ isOpen, onClose, id }) => {
             await axios.get(`${process.env.REACT_APP_API_URL}/realEstate/${id}`)
                 .then(response => {
                     setFormData(response.data);
-                    console.log(response.data)
+                    setFeatures(() => { return response.data.feature.split("&") });
                 })
                 .catch(error => {
                     console.error('Error:', error);
                 });
 
         }
-        console.log(id)
         getData();
 
-    }, []);
+    }, [id]);
 
 
     const handleChange = (e) => {
@@ -110,6 +109,14 @@ export const EditRealEstate = ({ isOpen, onClose, id }) => {
 
     }
 
+    function removeFeature(index) {
+        setFeatures((prevFeatures) => {
+            const newFeatures = [...prevFeatures]; // Create a copy of the array
+            newFeatures.splice(index, 1); // Use splice to remove the item
+            return newFeatures; // Return the new array
+        });
+    }
+
 
     return (
         <>
@@ -128,32 +135,32 @@ export const EditRealEstate = ({ isOpen, onClose, id }) => {
                         <div>
                             <form onSubmit={handleSubmit} className='w-[90vw] sm:w-[80vw]' enctype="multipart/form-data">
                                 <div className='flex'>
-                                    <div className='flex flex-1 flex-col my-2 mx-2'>
+                                    <div className='flex flex-1 flex-col my-[1px] mx-2'>
                                         <label className='my-1 text-sm text-left' htmlFor='name'>Name <span className='text-red-500'>*</span></label>
                                         <input type="text" name='name' value={formData.name} onChange={handleChange} className='border px-2 w-[100%] py-1 rounded-xl text-sm' />
                                     </div>
-                                    <div className='flex flex-1 flex-col my-2 mx-2'>
+                                    <div className='flex flex-1 flex-col my-[1px] mx-2'>
                                         <label className='my-1 text-sm text-left' htmlFor='price'>Price <span className='text-red-500'>*</span></label>
                                         <input type="text" name='price' value={formData.price} onChange={handleChange} className='border px-2 w-[100%] py-1 rounded-xl text-sm' />
                                     </div>
-                                    <div className='flex flex-1 flex-col my-2 mx-2'>
+                                    <div className='flex flex-1 flex-col my-[1px] mx-2'>
                                         <label className='my-1 text-sm text-left' htmlFor='images'>Images <span className='text-red-500'>*</span></label>
                                         <input type='file' name='images' id='images' multiple onChange={handleChange} className=" w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer   focus:outline-none" />
                                     </div>
                                 </div>
 
                                 <div className='flex'>
-                                    <div className='flex flex-1 flex-col my-2 mx-2'>
+                                    <div className='flex flex-1 flex-col my-[1px] mx-2'>
                                         <label className='my-1 text-sm text-left' htmlFor='desc'>Description <span className='text-red-500'>*</span></label>
                                         <textarea name='desc' value={formData.desc} onChange={handleChange} className='border px-2 w-[100%] py-1 h-[15vh] rounded-xl text-sm' />
                                     </div>
-                                    <div className='flex flex-1 flex-col my-2 mx-2'>
+                                    <div className='flex flex-1 flex-col my-[1px] mx-2'>
                                         <label className='my-1 text-sm text-left' htmlFor='message'>Message</label>
                                         <textarea name='message' value={formData.message} onChange={handleChange} className='border px-2 w-[100%] py-1 h-[15vh] rounded-xl text-sm' />
                                     </div>
                                 </div>
                                 <div className='flex'>
-                                    <div className='flex flex-1 mx-4 my-2 flex-col'>
+                                    <div className='flex flex-1 mx-4 my-[1px] flex-col'>
                                         <label className="my-1 text-sm text-left" htmlFor="type">Type <span className='text-red-500'>*</span></label>
                                         <select name="type" value={formData.type} onChange={handleChange} className='text-sm w-[100%] border px-2 py-1 rounded-xl'>
                                             <option value="">None</option>
@@ -163,7 +170,7 @@ export const EditRealEstate = ({ isOpen, onClose, id }) => {
                                             <option value="HolidayHome">Holiday Home</option>
                                         </select>
                                     </div>
-                                    <div className='flex flex-1 mx-4 my-2 flex-col'>
+                                    <div className='flex flex-1 mx-4 my-[1px] flex-col'>
                                         <label className="my-1 text-sm text-left" htmlFor="display">Display</label>
                                         <select name="display" value={formData.display} onChange={handleChange} className='text-sm w-[100%] border px-2 py-1 rounded-xl'>
                                             <option value="">None</option>
@@ -184,7 +191,7 @@ export const EditRealEstate = ({ isOpen, onClose, id }) => {
 
                                         </select>
                                     </div>
-                                    <div className='flex flex-1 mx-4 my-2 flex-col'>
+                                    <div className='flex flex-1 mx-4 my-[1px] flex-col'>
                                         <label className="my-1 text-sm text-left" htmlFor="status">Status <span className='text-red-500'>*</span></label>
                                         <select name="status" value={formData.status} onChange={handleChange} className='text-sm w-[100%] border px-2 py-1 rounded-xl'>
                                             <option value="">None</option>
@@ -212,7 +219,7 @@ export const EditRealEstate = ({ isOpen, onClose, id }) => {
                                         <input className='border w-[100%] text-sm rounded-xl px-2 py-1' type="text" name='latitude' value={formData.latitude} onChange={handleChange} />
                                     </div>
                                 </div>
-                                <div className='flex flex-1 my-2'>
+                                <div className='flex flex-1 my-[1px]'>
                                     <div className='flex-1 flex flex-col  mx-1 sm:mx-4'>
                                         <label className='my-1 text-sm text-left' htmlFor='bedrooms'>Bedroom</label>
                                         <input className='w-[100%] text-sm border rounded-xl px-2 py-1' type="number" name='bedrooms' value={formData.bedrooms} onChange={handleChange} />
@@ -235,15 +242,15 @@ export const EditRealEstate = ({ isOpen, onClose, id }) => {
                                     <div className='flex'>
                                         <input className='border w-[100%]  px-2 py-1 text-sm' type="text" value={feature} onChange={handleChangeFeature} />
                                         <button onClick={handleFeatureSubmit} className=' px-2 bg-black text-white'>+</button>
-
                                     </div>
-                                    <div className='flex'>
-
-                                        {features.map((f) => {
-                                            return (<div className='ml-4 px-3 py-1 text-sm rounded-xl border'>{f}</div>)
+                                    <div className='flex overflow-x-scroll mx-4  w-[70%]' id="style-1">
+                                        {features.map((f, key) => {
+                                            return (<div key={key} className='ml-4 flex items-center pl-2 whitespace-nowrap  text-sm text-left border'>
+                                                <div>{f}</div>
+                                                <div onClick={() => { removeFeature(key) }} className='ml-1 bg-black text-white px-3 py-1 cursor-pointer'>-</div>
+                                            </div>)
                                         })}
                                     </div>
-
                                 </div>
                                 <div className='flex flex-col my-4 sm:flex-row'>
                                     <div className='flex flex-1 flex-col mx-4'>

@@ -72,11 +72,11 @@ const RealEstate = ({ createModal , query }) => {
                             key={index}
                             className={`${index % 2 === 0 ? 'bg-white dark:bg-gray-900' : 'bg-gray-50 dark:bg-gray-800'} border-b dark:border-gray-700`}
                         >
-                            <th scope="row" className="font-medium whitespace-nowrap dark:text-white">
+                             <th scope="row" className="font-medium whitespace-nowrap dark:text-white">
                                 <td className="px-6 py-2 md:py-4">{data.name}</td>
                             </th>
                             <td className="px-6 py-2 hidden md:py-4 lg:table-cell">{data.type}</td>
-                            <td className="px-6 py-2 hidden md:py-4 lg:table-cell">{data.desc.slice(0, 20)} ....</td>
+                            <td className="px-6 py-2 hidden md:py-4 lg:table-cell">{data.desc.slice(0, 10)} ....</td>
                             <td className="px-6 py-2 hidden md:py-4 lg:table-cell">{data.price}</td>
                             <td className="px-6 py-2 hidden md:py-4 sm:table-cell">
                                 {data.status === "approved" && <span className='text-white py-2 px-4 bg-green-400 rounded-xl'>approved</span>}

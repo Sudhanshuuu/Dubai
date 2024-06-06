@@ -8,6 +8,7 @@ import AdminCommercialRealEstate from "./AdminPages/AdminCommercialEstate/AdminC
 import AdminContact from "./AdminPages/AdminContact/AdminContact";
 import AdminHolidayRealEstate from "./AdminPages/AdminHolidayRealEstate/AdminHolidayRealEstate";
 import Detail from "./Detail/Detail";
+import BuyRealEstate from "./BuyRealEstate/BuyRealEstate";
 
 const Home = lazy(() => import("./Home/Home"));
 const About = lazy(() => import("./About/About"));
@@ -41,7 +42,8 @@ function Page() {
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/enquiry" element={<GeneralEnquiry />} />
                     <Route path="/listProperty" element={<ListProperty />} />
-                    <Route path="/property/:id" element={<Detail/>} />
+                    <Route path="/property/:id" element={<Detail />} />
+                    <Route path="/buyRealEstate" element={<BuyRealEstate />} />
                 </Routes>
                 <Routes>
                     {isLoggedIn ? (

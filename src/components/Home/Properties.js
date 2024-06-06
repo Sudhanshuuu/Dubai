@@ -3,8 +3,10 @@ import axios from "axios";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useNavigate } from "react-router-dom";
 
 const Properties = () => {
+  let navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState("rent");
 
   let [buyProperty, setBuyProperty] = useState([{}]);
@@ -127,6 +129,7 @@ const Properties = () => {
           {selectedProperties.map((property, index) => (
             <div
               key={index}
+              onClick={()=>{navigate(`/property/${property._id}`)}}
               className=" px-6 w-full lg:w-1/4"
             >
               <div

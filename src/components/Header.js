@@ -51,7 +51,7 @@ function Navbar() {
       >
         <div className="flex justify-around items-center flex-grow font-semibold flex-col md:flex-row">
           <a href="/" className="duration-200 hover:text-[#919191] text-sm font-light md:hidden">Home</a>
-          <a href="#" className="duration-200 hover:text-[#919191] text-sm font-light">Buy</a>
+          <a href="/buyRealEstate" className="duration-200 hover:text-[#919191] text-sm font-light">Buy</a>
           <a href="#" className="duration-200 hover:text-[#919191] text-sm font-light">Rent</a>
           <a href="#" className="duration-200 hover:text-[#919191] text-sm font-light">Commercial</a>
           <a href="#" className="duration-200 hover:text-[#919191] text-sm font-light">New Projects</a>

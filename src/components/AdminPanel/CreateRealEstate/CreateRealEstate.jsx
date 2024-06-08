@@ -147,6 +147,7 @@ export const CreateRealEstate = ({ isOpen, onClose }) => {
                                             <option value="Buy">Buy</option>
                                             <option value="Commercial">Commercial</option>
                                             <option value="HolidayHome">Holiday Home</option>
+                                            <option value="NewProject">New Project</option>
                                         </select>
                                     </div>
                                     <div className='flex flex-1 mx-4 my-[1px] flex-col'>
@@ -166,6 +167,8 @@ export const CreateRealEstate = ({ isOpen, onClose }) => {
                                             </>}
                                             {formData.type === "HolidayHome" && <>
                                                 <option value="handPick">HandPicked</option>
+                                            </>}
+                                            {formData.type === "NewProject" && <>
                                             </>}
 
                                         </select>

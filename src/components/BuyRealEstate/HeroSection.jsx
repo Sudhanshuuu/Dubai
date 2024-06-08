@@ -22,7 +22,7 @@ const HeroSection = ({ searchResult, setSearchResult , handleFilter}) => {
 
     return (
         <section
-            className="relative h-screen *:font-sans"
+            className="relative  h-[85vh] *:font-sans"
             style={{
                 overflow: "hidden",
             }}
@@ -31,7 +31,7 @@ const HeroSection = ({ searchResult, setSearchResult , handleFilter}) => {
                 autoPlay
                 loop
                 muted
-                className="absolute top-0 left-0 min-w-full min-h-full object-cover video1"
+                className="absolute top-0 left-0 w-full h-[85vh] object-cover video1"
                 style={{
                     zIndex: "-1",
                 }}

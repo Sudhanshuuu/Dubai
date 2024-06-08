@@ -1,29 +1,50 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Modal } from './Modal';
 
-const ListProperty = () => {
+const ListProperty = ({filterData}) => {
 
 
+    let [modal, setModal] = useState(false);
     let [data, setData] = useState([]);
     const [mobileView, setMobileView] = useState(false);
 
-    useEffect(() => {
-        async function fetchData() {
-            try {
-                const response = await axios.get("http://localhost:3005/listaproperty");
-                console.log(response.data);
-                setData(response.data);  // Assuming you want to save the response data to state
-            } catch (error) {
-                console.error('Error:', error);
-            }
+    async function fetchData() {
+        try {
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/listAProperty`);
+            setData(response.data);  // Assuming you want to save the response data to state
+        } catch (error) {
+            console.error('Error:', error);
         }
+    }
 
+
+    const openModal = () => {
+        setModal(true);
+    };
+    const onClose = () => {
+        setModal(false);
         fetchData();
-    }, [])
+    };
+
+
+    useEffect(() => {
+        setData(filterData)
+    }, [filterData])
 
     const handleResize = () => {
         setMobileView(window.innerWidth <= 768);
     };
+
+    
+    async function deleteQuery(id) {
+        try {
+            await axios.delete(`${process.env.REACT_APP_API_URL}/listAProperty/${id}`);
+            fetchData();
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
 
     useEffect(() => {
         handleResize();
@@ -41,12 +62,12 @@ const ListProperty = () => {
                     <tr>
                         <th scope="col" className="px-3 py-3 text-sm">Name</th>
                         <th scope="col" className="px-3 py-3 text-sm">Email</th>
+                        <th scope="col" className="px-3 py-3 text-sm">Address</th>
                         <th scope="col" className="px-3 py-3 text-sm">Phone</th>
                         <th scope="col" className="px-3 py-3 text-sm">Date</th>
                         <th scope="col" className="px-3 py-3 text-sm">Status</th>
                         <th scope="col" className="px-3 py-3 text-sm">Time</th>
-                        <th scope="col" className="px-3 py-3 text-sm">Address</th>
-                        <th scope="col" className="px-3 py-3 text-sm">Message</th>
+                        <th scope="col" className="px-3 py-3 text-sm">Operations</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -62,19 +83,24 @@ const ListProperty = () => {
                                 scope="row"
                                 className=" py-4 font-medium whitespace-nowrap dark:text-white"
                             >
-                                <td className="px-3 py-4  w-[150px]">{data.name}</td>
+                                <td className="px-3 py-4 ">{data.name}</td>
                             </th>
                             <td className="px-3 py-4">{data.email}</td>
+                            <td className="px-3 py-4">{data.address.slice(0, 20)} ...</td>
                             <td className="px-3 py-4">{data.phone}</td>
                             <td className="px-3 py-4 w-28">{data.date}</td>
                             <td className="px-3 py-4">
                                 {data.status === "pending" ? <span className=' text-white text-[0.75rem] py-2 px-3 bg-green-400 rounded-xl'>Pending</span> : ''}
                                 {data.status === "inprogress" ? <span className=' text-white text-[0.75rem] py-2 px-3 bg-yellow-400 rounded-xl'>In progress</span> : ''}
-                                {data.status === "postpopned" ? <span className=' text-white text-[0.75rem] py-2 px-3 bg-red-400 rounded-xl'>PostPoned</span> : ''}
+                                {data.status === "postponed" ? <span className=' text-white text-[0.75rem] py-2 px-3 bg-red-400 rounded-xl'>PostPoned</span> : ''}
                             </td>
                             <td className="px-3 py-4">{data.time}</td>
-                            <td className="px-3 py-4">{data.address}</td>
-                            <td className="px-3 py-4">{data.message}</td>
+
+                            <td className="px-4 flex flex-col py-2 md:px-0 md:py-2">
+                                <button className='bg-gray-600 px-4 py-2 my-1 mx-1 text-white rounded-xl duration-300 hover:bg-[#919191]' onClick={openModal}>Edit/View More</button>
+                                <button className='bg-red-500 px-4 py-2 my-1 mx-1 text-white rounded-xl duration-300 hover:bg-red-400' onClick={()=>{deleteQuery(data._id)}}>Delete</button>
+                            </td>
+                            <Modal isOpen={modal} onClose={onClose} id={data._id} />
                         </tr>
                     ))}
                 </tbody>

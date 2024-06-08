@@ -9,6 +9,13 @@ import AdminContact from "./AdminPages/AdminContact/AdminContact";
 import AdminHolidayRealEstate from "./AdminPages/AdminHolidayRealEstate/AdminHolidayRealEstate";
 import Detail from "./Detail/Detail";
 import BuyRealEstate from "./BuyRealEstate/BuyRealEstate";
+import RentRealEstate from "./RentRealEstate/RentRealEstate";
+import CommercialRealEstate from "./CommercialRealEstate/CommercialRealEstate";
+import HolidayRealEstate from "./HolidayRealEstate/HolidayRealEstate";
+import AdminNewProject from "./AdminPages/AdminNewProject/AdminNewProject";
+import NewProjects from "./NewProjects/NewProjects";
+import Career from "./Career/Career";
+import AdminCareer from "./AdminPages/AdminCareer/AdminCareer";
 
 const Home = lazy(() => import("./Home/Home"));
 const About = lazy(() => import("./About/About"));
@@ -44,6 +51,11 @@ function Page() {
                     <Route path="/listProperty" element={<ListProperty />} />
                     <Route path="/property/:id" element={<Detail />} />
                     <Route path="/buyRealEstate" element={<BuyRealEstate />} />
+                    <Route path="/rentRealEstate" element={<RentRealEstate/>} />
+                    <Route path="/commercialRealEstate" element={<CommercialRealEstate/>} />
+                    <Route path="/holidayRealEstate" element={<HolidayRealEstate/>} />
+                    <Route path="/newProjects" element={<NewProjects/>} />
+                    <Route path="/career" element={<Career/>} />
                 </Routes>
                 <Routes>
                     {isLoggedIn ? (
@@ -57,6 +69,8 @@ function Page() {
                             <Route path="/admin/rentRealEstate" element={<AdminRentRealEstate />} />
                             <Route path="/admin/commercialRealEstate" element={<AdminCommercialRealEstate />} />
                             <Route path="/admin/holidayRealEstate" element={<AdminHolidayRealEstate />} />
+                            <Route path="/admin/newProjects" element={<AdminNewProject/>} />
+                            <Route path="/admin/career" element={<AdminCareer/>} />
                         </>
                     ) : (
                         <Route path="/admin/*" element={<Login />} />

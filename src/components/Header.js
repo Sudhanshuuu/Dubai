@@ -52,18 +52,36 @@ function Navbar() {
         <div className="flex justify-around items-center flex-grow font-semibold flex-col md:flex-row">
           <a href="/" className="duration-200 hover:text-[#919191] text-sm font-light md:hidden">Home</a>
           <a href="/buyRealEstate" className="duration-200 hover:text-[#919191] text-sm font-light">Buy</a>
-          <a href="#" className="duration-200 hover:text-[#919191] text-sm font-light">Rent</a>
-          <a href="#" className="duration-200 hover:text-[#919191] text-sm font-light">Commercial</a>
-          <a href="#" className="duration-200 hover:text-[#919191] text-sm font-light">New Projects</a>
+          <a href="/rentRealEstate" className="duration-200 hover:text-[#919191] text-sm font-light">Rent</a>
+          <a href="/commercialRealEstate" className="duration-200 hover:text-[#919191] text-sm font-light">Commercial</a>
+          <a href="/newProjects" className="duration-200 hover:text-[#919191] text-sm font-light">New Projects</a>
           <a href="#" className="duration-200 hover:text-[#919191] text-sm font-light">Areas</a>
-          <a href="#" className="duration-200 hover:text-[#919191] text-sm font-light">Find a Service</a>
+          <div
+            onMouseEnter={() => { handleDropdownMouseEnter("service") }}
+            onMouseLeave={() => { handleDropdownMouseLeave("service") }}
+            className=" md:h-12 flex flex-col items-center justify-center"
+          >
+            <div
+              className="duration-200 hover:text-[#919191] text-sm font-light relative ]"
+            >
+              Services
+              {dropdownVisibleService && (
+                <div className="absolute top-full left-[-90%] mt-1 w-40 bg-white text-black rounded-md">
+                  <a href="/holidayRealEstate" className="block px-4 py-2 hover:bg-gray-200">Holiday Home</a>
+                  <a href="#" className="block px-4 py-2 hover:bg-gray-200">Off Plan</a>
+                  <a href="#" className="block px-4 py-2 hover:bg-gray-200">Mortages</a>
+                </div>
+              )}
+            </div>
+          </div>
           <a href='/' className="hover:text-indigo-600 hidden md:block">
             <img
               src={gif}
               alt=""
-              className=" w-16"
+              className=" w-32"
             />
           </a>
+          <a href="/aboutUs" className="duration-200 hover:text-[#919191] text-sm font-light">About Us</a>
           <div
             onMouseEnter={() => { handleDropdownMouseEnter("about") }}
             onMouseLeave={() => { handleDropdownMouseLeave("about") }}
@@ -75,7 +93,6 @@ function Navbar() {
               Know Us
               {dropdownVisibleAbout && (
                 <div className="absolute top-full left-[-90%] mt-1 w-40 bg-white text-black rounded-md">
-                  <a href="/aboutUs" className="block px-4 py-2 hover:bg-gray-200">About Us</a>
                   <a href="/Communities" className="block px-4 py-2 hover:bg-gray-200">Communities</a>
                   <a href="/Team" className="block px-4 py-2 hover:bg-gray-200">Team</a>
                   <a href="/Review" className="block px-4 py-2 hover:bg-gray-200">Review</a>
@@ -84,26 +101,23 @@ function Navbar() {
               )}
             </div>
           </div>
-          <a href="#" className="duration-200 hover:text-[#919191] text-sm font-light">Developers</a>
-          <div
-            onMouseEnter={() => { handleDropdownMouseEnter("service") }}
-            onMouseLeave={() => { handleDropdownMouseLeave("service") }}
-            className=" md:h-12 flex flex-col items-center justify-center"
-          >
-            <div
-              className="duration-200 hover:text-[#919191] text-sm font-light relative ]"
-            >
-             Services
-              {dropdownVisibleService && (
-                <div className="absolute top-full left-[-90%] mt-1 w-40 bg-white text-black rounded-md">
-                  <a href="#" className="block px-4 py-2 hover:bg-gray-200">Holiday Home</a>
-                  <a href="#" className="block px-4 py-2 hover:bg-gray-200">Off Plan</a>
-                  <a href="#" className="block px-4 py-2 hover:bg-gray-200">Mortages</a>
-                </div>
-              )}
-            </div>
-          </div>
-          <div
+          <a href="/career" className="duration-200 hover:text-[#919191] text-sm font-light">Career</a>
+          <a href="/contact" className="duration-200 hover:text-[#919191] text-sm font-light">Contact</a>
+
+          <button onClick={() => { navigate('/listProperty') }} className="mx-1 my-2 text-sm font-light px-6 py-2 transition duration-200 border border-[#173D73] rounded-lg  text-white bg-[#173D73] hover:bg-white hover:text-[#173D73]">
+            <span className=" font-semibold">+</span> List Your Property
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Navbar;
+
+/*
+
+    <div
             onMouseEnter={() => { handleDropdownMouseEnter("contact") }}
             onMouseLeave={() => { handleDropdownMouseLeave("contact") }}
             className=" md:h-12 flex flex-col items-center justify-center"
@@ -121,13 +135,4 @@ function Navbar() {
               )}
             </div>
           </div>
-          <button onClick={() => { navigate('/listProperty') }} className="mx-1 my-2 text-sm font-light px-6 py-2 transition duration-200 border border-[#173D73] rounded-lg  text-white bg-[#173D73] hover:bg-white hover:text-[#173D73]">
-            <span className=" font-semibold">+</span> List Your Property
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export default Navbar;
+*/

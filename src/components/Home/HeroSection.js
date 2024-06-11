@@ -7,7 +7,7 @@ import "./styles/HeroSection.css";
 const HeroSection = () => {
   // State to manage input values
   const [city, setCity] = useState("");
-  const [bedrooms, setBedrooms] = useState("");
+  const [complete, setComplete] = useState("");
   const [price, setPrice] = useState("");
   const [propertyType, setPropertyType] = useState("");
   const [searchResult, setSearchResult] = useState(null);
@@ -29,7 +29,6 @@ const HeroSection = () => {
     // Dummy logic to simulate search
     const result = {
       city: city || "Dubai",
-      bedrooms: bedrooms || "Any",
       price: price || "Any",
       propertyType: propertyType || "Any",
     };
@@ -112,6 +111,52 @@ const HeroSection = () => {
           Dubai’s fastest growing brokerage, while providing a new standard of
           service
         </p>
+        <div className="bg-white text-black p-4 rounded-lg shadow-md  md:max-w-5xl">
+          <div className="flex flex-col md:flex-row items-center justify-between space-y-2 md:space-y-0 md:space-x-2">
+            <input
+              type="text"
+              placeholder="City, community or area"
+              className="p-2 rounded border border-gray-300 flex-1 w-[60vw] lg:w-auto"
+              value={city}
+              onChange={(e) => { setCity(e.target.value); }}
+            />
+            <select className="p-2 text-[#A1A8B3] rounded border border-gray-300 flex-1 w-[60vw] lg:w-auto" name="price" onChange={(e) => { setPrice(e.target.value); }}>
+              <option value="">Min Price</option>
+              <option value="300000">300000 AED</option>
+              <option value="500000">500000 AED</option>
+              <option value="800000">800000 AED</option>
+              <option value="1000000">1000000 AED</option>
+              <option value="1500000">1500000 AED</option>
+              <option value="2000000">2000000 AED</option>
+            </select>
+            <select className="p-2 text-[#A1A8B3] rounded border border-gray-300 flex-1 w-[60vw] lg:w-auto" name="propretyType" onChange={(e) => { setPropertyType(e.target.value); }}>
+              <option value="commercial">Commercial</option>
+              <option value="residential">Residential</option>
+            </select>
+            <select className="p-2 text-[#A1A8B3] rounded border border-gray-300 flex-1 w-[60vw] lg:w-auto" name="propretyComplete" onChange={(e) => { setComplete(e.target.value); }}>
+              <option value="">None</option>
+              <option value="offPlan">Off Plan</option>
+              <option value="ready">Ready</option>
+            </select>
+
+            <button
+              className="bg-[#173D73] text-white p-2 rounded flex-shrink-0"
+              onClick={() => { handleSearch() }}
+            >
+              Search
+            </button>
+          </div>
+        </div>
+        {/* Display search result */}
+        {searchResult && (
+          <div className="mt-4 text-lg">
+            <p>
+              Search Result: City - {searchResult.city}, Property Status -{" "}
+              {searchResult.complete}, Price Range - {searchResult.price},{" "}
+              Property Type - {searchResult.propertyType}
+            </p>
+          </div>
+        )}
       </div>
     </section>
   );

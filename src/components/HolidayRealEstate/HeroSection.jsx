@@ -37,7 +37,7 @@ const HeroSection = ({ searchResult, setSearchResult, handleFilter }) => {
                 }}
             >
                 <source
-                    src="https://videos.pexels.com/video-files/8396975/8396975-hd_1280_720_25fps.mp4"
+                    src="https://videos.pexels.com/video-files/14606894/14606894-hd_1366_720_30fps.mp4"
                     type="video/mp4"
                 />
                 Your browser does not support the video tag.
@@ -49,7 +49,7 @@ const HeroSection = ({ searchResult, setSearchResult, handleFilter }) => {
 
             <div className=" absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-[100vw]">
                 <h1 className="text-3xl md:text-6xl font-semibold mb-4 text-white">
-                    Buying Real Estate
+                    Holiday Home Real Estate
                 </h1>
                 <div className="relative container mx-auto flex flex-col items-center justify-center  text-center text-white px-4">
                     <p className="text-lg md:text-2xl mb-8">
@@ -65,7 +65,7 @@ const HeroSection = ({ searchResult, setSearchResult, handleFilter }) => {
                                 value={city}
                                 onChange={(e) => { setCity(e.target.value); }}
                             />
-                            <select  className="p-2 text-[#A1A8B3] rounded border border-gray-300 flex-1 w-[60vw] lg:w-auto" name="price" onChange={(e) => { setPrice(e.target.value); }}>
+                            <select className="p-2 text-[#A1A8B3] rounded border border-gray-300 flex-1 w-[60vw] lg:w-auto" name="price" onChange={(e) => { setPrice(e.target.value); }}>
                                 <option value="">Min Price</option>
                                 <option value="300000">300000 AED</option>
                                 <option value="500000">500000 AED</option>
@@ -74,11 +74,11 @@ const HeroSection = ({ searchResult, setSearchResult, handleFilter }) => {
                                 <option value="1500000">1500000 AED</option>
                                 <option value="2000000">2000000 AED</option>
                             </select>
-                            <select  className="p-2 text-[#A1A8B3] rounded border border-gray-300 flex-1 w-[60vw] lg:w-auto" name="propretyType" onChange={(e) => { setPropertyType(e.target.value); }}>
+                            <select className="p-2 text-[#A1A8B3] rounded border border-gray-300 flex-1 w-[60vw] lg:w-auto" name="propretyType" onChange={(e) => { setPropertyType(e.target.value); }}>
                                 <option value="commercial">Commercial</option>
                                 <option value="residential">Residential</option>
                             </select>
-                            <select  className="p-2 text-[#A1A8B3] rounded border border-gray-300 flex-1 w-[60vw] lg:w-auto" name="propretyComplete" onChange={(e) => { setComplete(e.target.value); }}>
+                            <select className="p-2 text-[#A1A8B3] rounded border border-gray-300 flex-1 w-[60vw] lg:w-auto" name="propretyComplete" onChange={(e) => { setComplete(e.target.value); }}>
                                 <option value="">None</option>
                                 <option value="offPlan">Off Plan</option>
                                 <option value="ready">Ready</option>

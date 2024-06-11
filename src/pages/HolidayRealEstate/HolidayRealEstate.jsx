@@ -31,23 +31,27 @@ function HolidayRealEstate() {
 
     function handleFilter(searchResult) {
         setFilterData(data)
-        if (searchResult.city !== "Dubai") {
-            if (searchResult.city) {
+        console.log(searchResult)
+            if (searchResult.city !== "Dubai") {
                 setFilterData((prev) => {
                     return prev.filter((property) => property.location.includes(searchResult.city));
                 });
             }
-            if (searchResult.bedrooms !== "Any") {
+            if (searchResult.propertyType !== "Any") {
                 setFilterData((prev) => {
-                    return prev.filter((property) => { return parseInt(property.bedrooms) === parseInt(searchResult.bedrooms) });
+                    return prev.filter((property) => { return property.propertyType === searchResult.propertyType });
                 });
             }
             if (searchResult.price !== "Any") {
                 setFilterData((prev) => {
-                    return prev.filter((property) => { return parseInt(property.price) > parseInt(searchResult.price) });
+                    return prev.filter((property) => {  return parseInt(property.price) > parseInt(searchResult.price) });
                 });
             }
-        }
+            if (searchResult.complete !== "Any") {
+                setFilterData((prev) => {
+                    return prev.filter((property) => {  return  property.propertyStatus === searchResult.complete  });
+                });
+            }
     }
 
 

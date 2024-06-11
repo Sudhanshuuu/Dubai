@@ -37,7 +37,7 @@ const HeroSection = ({ searchResult, setSearchResult, handleFilter }) => {
                 }}
             >
                 <source
-                    src="https://videos.pexels.com/video-files/8396975/8396975-hd_1280_720_25fps.mp4"
+                    src="https://videos.pexels.com/video-files/5538867/5538867-hd_1280_720_30fps.mp4"
                     type="video/mp4"
                 />
                 Your browser does not support the video tag.
@@ -49,7 +49,7 @@ const HeroSection = ({ searchResult, setSearchResult, handleFilter }) => {
 
             <div className=" absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-[100vw]">
                 <h1 className="text-3xl md:text-6xl font-semibold mb-4 text-white">
-                    Buying Real Estate
+                    Commercial Real Estate
                 </h1>
                 <div className="relative container mx-auto flex flex-col items-center justify-center  text-center text-white px-4">
                     <p className="text-lg md:text-2xl mb-8">

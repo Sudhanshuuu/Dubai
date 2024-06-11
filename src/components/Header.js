@@ -78,7 +78,7 @@ function Navbar() {
             <img
               src={gif}
               alt=""
-              className=" w-32"
+              className= " w-44"
             />
           </a>
           <a href="/aboutUs" className="duration-200 hover:text-[#919191] text-sm font-light">About Us</a>

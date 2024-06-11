@@ -1,12 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState , useEffect } from 'react';
 import axios from 'axios';
 
 export const EditRealEstate = ({ isOpen, onClose, id }) => {
 
-    let [features, setFeatures] = useState([]);
     let [feature, setFeature] = useState("");
-    let [dataFeature, setDataFeature] = useState("");
-
 
     const [formData, setFormData] = useState({
         name: '',
@@ -26,8 +23,10 @@ export const EditRealEstate = ({ isOpen, onClose, id }) => {
         listedBy: '',
         email: '',
         number: '',
-        feature: '',
-        images: []
+        features: [],
+        images: [],
+        propertyStatus: '',
+        propertyType: ''
     });
 
     useEffect(() => {
@@ -35,17 +34,15 @@ export const EditRealEstate = ({ isOpen, onClose, id }) => {
             await axios.get(`${process.env.REACT_APP_API_URL}/realEstate/${id}`)
                 .then(response => {
                     setFormData(response.data);
-                    setFeatures(() => { return response.data.feature.split("&") });
                 })
                 .catch(error => {
                     console.error('Error:', error);
                 });
-
+    
         }
         getData();
-
+    
     }, [id]);
-
 
     const handleChange = (e) => {
         if (e.target.name === 'images') {
@@ -68,16 +65,15 @@ export const EditRealEstate = ({ isOpen, onClose, id }) => {
                     data.append('images', formData.images[i]);
                 }
             }
-
-
+            else if(key === "features"){
+                    for (let i = 0; i < formData.features.length; i++) {
+                        data.append('features', formData.features[i]);
+                    }
+            }
             else {
                 data.append(key, formData[key]);
             }
         });
-
-
-
-
 
         try {
             const response = await axios.put(`${process.env.REACT_APP_API_URL}/realEstate/${id}`, data, {
@@ -95,13 +91,12 @@ export const EditRealEstate = ({ isOpen, onClose, id }) => {
 
     function handleFeatureSubmit(e) {
         e.preventDefault();
-        setFeatures((prev) => { return [...prev, feature] });
-        features.map((f) => {
-            console.log(f)
-            setDataFeature((prev) => { return (f + ' & ' + prev) })
-        })
-        setFormData({ ...formData, feature: dataFeature });
-
+        console.log("a")
+            setFormData((prev) => {
+                const updatedFeatures = [...prev.features, feature];
+                return { ...prev, features: updatedFeatures };
+            });
+            console.log(formData.features ,  'a')
     }
 
     function handleChangeFeature(e) {
@@ -110,10 +105,10 @@ export const EditRealEstate = ({ isOpen, onClose, id }) => {
     }
 
     function removeFeature(index) {
-        setFeatures((prevFeatures) => {
-            const newFeatures = [...prevFeatures]; // Create a copy of the array
+        setFormData((prev) => {
+            const newFeatures = [...prev.features]; // Create a copy of the array
             newFeatures.splice(index, 1); // Use splice to remove the item
-            return newFeatures; // Return the new array
+            return { ...prev, features: newFeatures }// Return the new array
         });
     }
 
@@ -125,7 +120,7 @@ export const EditRealEstate = ({ isOpen, onClose, id }) => {
                     <div className="fixed inset-0 bg-black opacity-50"></div>
                     <div className="bg-white p-8 rounded-lg shadow-lg z-50">
                         <div className="flex mb-3 justify-between">
-                            <div className=' font-semibold'>Edit</div>
+                            <div className=' font-semibold'>Create</div>
                             <button onClick={onClose} className="text-gray-500 hover:text-gray-700 focus:outline-none">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -203,6 +198,22 @@ export const EditRealEstate = ({ isOpen, onClose, id }) => {
                                             <option value="expired">Expired</option>
                                         </select>
                                     </div>
+                                    <div className='flex flex-1 mx-4 my-[1px] flex-col'>
+                                        <label className="my-1 text-sm text-left" htmlFor="propertyStatus">Property Status <span className='text-red-500'>*</span></label>
+                                        <select name="propertyStatus" value={formData.propertyStatus} onChange={handleChange} className='text-sm w-[100%] border px-2 py-1 rounded-xl'>
+                                            <option value="">None</option>
+                                            <option value="ready">Ready</option>
+                                            <option value="offPlan">Off Plan</option>
+                                        </select>
+                                    </div>
+                                    <div className='flex flex-1 mx-4 my-[1px] flex-col'>
+                                        <label className="my-1 text-sm text-left" htmlFor="propertyType">Property Type <span className='text-red-500'>*</span></label>
+                                        <select name="propertyType" value={formData.propertyType} onChange={handleChange} className='text-sm w-[100%] border px-2 py-1 rounded-xl'>
+                                            <option value="">None</option>
+                                            <option value="commercial">Commercial</option>
+                                            <option value="residential">Residential</option>
+                                        </select>
+                                    </div>
                                 </div>
                                 <div className='flex flex-1 my-4'>
                                     <div className='flex-1 flex flex-col mx-4 '>
@@ -247,7 +258,7 @@ export const EditRealEstate = ({ isOpen, onClose, id }) => {
                                         <button onClick={handleFeatureSubmit} className=' px-2 bg-black text-white'>+</button>
                                     </div>
                                     <div className='flex overflow-x-scroll mx-4  w-[70%]' id="style-1">
-                                        {features.map((f, key) => {
+                                        {formData.features.map((f, key) => {
                                             return (<div key={key} className='ml-4 flex items-center pl-2 whitespace-nowrap  text-sm text-left border'>
                                                 <div>{f}</div>
                                                 <div onClick={() => { removeFeature(key) }} className='ml-1 bg-black text-white px-3 py-1 cursor-pointer'>-</div>

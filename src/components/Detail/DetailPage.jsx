@@ -1,17 +1,6 @@
-import { useEffect, useState } from 'react'
 
 export default function DetailPage({ data }) {
 
-  let [feature, setFeature] = useState([]);
-
-  useEffect(() => {
-    window.scrollTo(0, 0)
-    if (data.feature) {
-
-      setFeature(() => { return data.feature.split('&') })
-    }
-
-  }, [data])
 
   return (
     <div className="bg-white md:mt-[5vh] *:font-sans">
@@ -126,9 +115,12 @@ export default function DetailPage({ data }) {
 
               <div className="mt-4  flex flex-wrap">
                 {
-                  feature.map((f) => {
+                  data.features
+                  &&
+                  (data.features.map((f) => {
+                    console.log(f)
                     return <p className="text-sm mx-1 text-gray-600">{f} |</p>
-                  })
+                  }))
                 }
               </div>
             </div>

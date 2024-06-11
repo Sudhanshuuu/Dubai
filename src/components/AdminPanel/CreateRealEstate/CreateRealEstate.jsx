@@ -3,10 +3,7 @@ import axios from 'axios';
 
 export const CreateRealEstate = ({ isOpen, onClose }) => {
 
-    let [features, setFeatures] = useState([]);
     let [feature, setFeature] = useState("");
-    let [dataFeature, setDataFeature] = useState("");
-
 
     const [formData, setFormData] = useState({
         name: '',
@@ -26,8 +23,10 @@ export const CreateRealEstate = ({ isOpen, onClose }) => {
         listedBy: '',
         email: '',
         number: '',
-        feature: '',
-        images: []
+        features: [],
+        images: [],
+        propertyStatus: '',
+        propertyType: ''
     });
 
 
@@ -53,6 +52,11 @@ export const CreateRealEstate = ({ isOpen, onClose }) => {
                     data.append('images', formData.images[i]);
                 }
             }
+            else if(key === "features"){
+                    for (let i = 0; i < formData.features.length; i++) {
+                        data.append('features', formData.features[i]);
+                    }
+            }
             else {
                 data.append(key, formData[key]);
             }
@@ -74,13 +78,12 @@ export const CreateRealEstate = ({ isOpen, onClose }) => {
 
     function handleFeatureSubmit(e) {
         e.preventDefault();
-        setFeatures((prev) => { return [...prev, feature] });
-        features.map((f) => {
-            console.log(f)
-            setDataFeature((prev) => { return (f + ' & ' + prev) })
-        })
-        setFormData({ ...formData, feature: dataFeature });
-
+        console.log("a")
+            setFormData((prev) => {
+                const updatedFeatures = [...prev.features, feature];
+                return { ...prev, features: updatedFeatures };
+            });
+            console.log(formData.features ,  'a')
     }
 
     function handleChangeFeature(e) {
@@ -89,10 +92,10 @@ export const CreateRealEstate = ({ isOpen, onClose }) => {
     }
 
     function removeFeature(index) {
-        setFeatures((prevFeatures) => {
-            const newFeatures = [...prevFeatures]; // Create a copy of the array
+        setFormData((prev) => {
+            const newFeatures = [...prev.features]; // Create a copy of the array
             newFeatures.splice(index, 1); // Use splice to remove the item
-            return newFeatures; // Return the new array
+            return { ...prev, features: newFeatures }// Return the new array
         });
     }
 
@@ -182,6 +185,22 @@ export const CreateRealEstate = ({ isOpen, onClose }) => {
                                             <option value="expired">Expired</option>
                                         </select>
                                     </div>
+                                    <div className='flex flex-1 mx-4 my-[1px] flex-col'>
+                                        <label className="my-1 text-sm text-left" htmlFor="propertyStatus">Property Status <span className='text-red-500'>*</span></label>
+                                        <select name="propertyStatus" value={formData.propertyStatus} onChange={handleChange} className='text-sm w-[100%] border px-2 py-1 rounded-xl'>
+                                            <option value="">None</option>
+                                            <option value="ready">Ready</option>
+                                            <option value="offPlan">Off Plan</option>
+                                        </select>
+                                    </div>
+                                    <div className='flex flex-1 mx-4 my-[1px] flex-col'>
+                                        <label className="my-1 text-sm text-left" htmlFor="propertyType">Property Type <span className='text-red-500'>*</span></label>
+                                        <select name="propertyType" value={formData.propertyType} onChange={handleChange} className='text-sm w-[100%] border px-2 py-1 rounded-xl'>
+                                            <option value="">None</option>
+                                            <option value="commercial">Commercial</option>
+                                            <option value="residential">Residential</option>
+                                        </select>
+                                    </div>
                                 </div>
                                 <div className='flex flex-1 my-4'>
                                     <div className='flex-1 flex flex-col mx-4 '>
@@ -226,7 +245,7 @@ export const CreateRealEstate = ({ isOpen, onClose }) => {
                                         <button onClick={handleFeatureSubmit} className=' px-2 bg-black text-white'>+</button>
                                     </div>
                                     <div className='flex overflow-x-scroll mx-4  w-[70%]' id="style-1">
-                                        {features.map((f, key) => {
+                                        {formData.features.map((f, key) => {
                                             return (<div key={key} className='ml-4 flex items-center pl-2 whitespace-nowrap  text-sm text-left border'>
                                                 <div>{f}</div>
                                                 <div onClick={() => { removeFeature(key) }} className='ml-1 bg-black text-white px-3 py-1 cursor-pointer'>-</div>

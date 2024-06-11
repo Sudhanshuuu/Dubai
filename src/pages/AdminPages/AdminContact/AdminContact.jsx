@@ -22,9 +22,10 @@ function AdminContact() {
     }, [])
 
     function handleChange(e){
-        console.log(data)
-        console.log(e.target.value)
-        setFilterData(data.filter((d)=>{return d.email.includes(e.target.value)}));
+        const searchValue = e.target.value.toLowerCase();
+        setFilterData(
+            data.filter((d) => d.email.toLowerCase().includes(searchValue))
+        );
     }
 
     return (

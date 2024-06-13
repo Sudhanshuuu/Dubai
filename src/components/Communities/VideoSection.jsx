@@ -21,10 +21,6 @@ const VideoSection = () => {
                                 <h2 className="text-dark mb-3 text-3xl leading-[1.208] font-bold  sm:text-4xl md:text-[40px]">
                                     Our Most Popular Community
                                 </h2>
-                                <p className="mx-auto text-body-color text-base max-w-[510px] dark:text-dark-6 w-[80%]">
-                                    There are many variations of passages of Lorem Ipsum available
-                                    but the majority have suffered alteration in some form.
-                                </p>
                             </div>
                         </div>
                     </div>

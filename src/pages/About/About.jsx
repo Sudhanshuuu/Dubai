@@ -14,7 +14,6 @@ function About() {
         <Navbar/>
         <HeroSection />
         <CeoMessage />
-        <Team />
         <AboutCom />
         <ChooseUs/>
         <Service/>

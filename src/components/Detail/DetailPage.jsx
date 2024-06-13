@@ -1,25 +1,69 @@
+import locationPng from "../../assets/location.png";
+import bedPng from "../../assets/bed.png";
+import scalePng from "../../assets/scale.png";
+import bathtubPng from "../../assets/bathtub.png";
+
 
 export default function DetailPage({ data }) {
 
 
   return (
-    <div className="bg-white md:mt-[5vh] *:font-sans">
+    <div className="bg-white mx-[10vw] md:mt-[12vh] *:font-sans">
       <div className="pt-6">
 
         {/* Image gallery */}
-        <div className="mx-auto mt-6 lg:block">
-          <img
-            src={`${process.env.REACT_APP_IMG_URL}/${data.images[0]}`}
-            alt={data.images[0]}
-            className="h-[75vh] w-[100%] mx-auto object-cover object-center"
-          />
+        <div className="mx-auto mt-6 flex">
+          <div>
+            <img
+              src={`${process.env.REACT_APP_IMG_URL}/${data.images[0]}`}
+              alt={data.images[0]}
+              className="h-[75vh] w-[50vw] object-cover object-center rounded-lg"
+            />
+          </div>
+          <div >
+            <img
+              src={`${process.env.REACT_APP_IMG_URL}/${data.images[0]}`}
+              alt={data.images[0]}
+              className="h-[37vh] mx-2 mb-2 w-[30vw] object-cover object-center rounded-lg"
+            />
+            <img
+              src={`${process.env.REACT_APP_IMG_URL}/${data.images[0]}`}
+              alt={data.images[0]}
+              className="h-[37vh] mx-2 mt-2 w-[30vw] object-cover object-center rounded-lg"
+            />
+          </div>
         </div>
 
 
         {/* Product info */}
         <div className="*:text-left mx-auto max-w-2xl px-4 pt-10 sm:px-6 lg:grid lg:max-w-full lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 ">
           <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
-            <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{data.name}</h1>
+            <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-[1.7rem]">{data.name}</h1>
+            <div className="text-left py-2  text-sm text-gray-400 flex items-center"><img src={locationPng} alt="loaction" className="w-4 m-1" /><div>{data.location}</div></div>
+            <div className="text-left text-[2rem] font-semibold text-black">{data.price} AED</div>
+            <div className="flex my-1 py-4 border border-l-0 border-r-0 ">
+              <div className="flex flex-col">
+                <div className=" text-xl text-left font-semibold flex justify-center items-center">
+                  <div className="text-[#173d73]">{data.bedrooms}</div>
+                  <img src={bedPng} alt="bed" className="w-14 h-12 mx-4" />
+                </div>
+                <div className="text-sm text-gray-400">Beds</div>
+              </div>
+              <div className="flex flex-col mx-4">
+                <div className=" text-xl text-left font-semibold flex justify-center items-center">
+                  <div className="text-[#173d73]">{data.bathrooms}</div>
+                  <img src={bathtubPng} alt="bed" className="w-14 h-12 mx-4" />
+                </div>
+                <div className="text-sm text-gray-400">Bathrooms</div>
+              </div>
+              <div className="flex flex-col">
+                <div className=" text-xl text-left font-semibold flex justify-center items-center">
+                  <div className="text-[#173d73]">{data.square}</div>
+                  <img src={scalePng} alt="bed" className="w-14 h-12 mx-4" />
+                </div>
+                <div className="text-sm text-gray-400">Square(ft)</div>
+              </div>
+            </div>
           </div>
 
           {/* Options */}
@@ -72,14 +116,9 @@ export default function DetailPage({ data }) {
           </div>
 
           <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
-            {/* Description and details */}
-            <div>
-              <h3 className="sr-only">Description</h3>
+            <div>Brought to you by UCS Prime  this exquisite and unique {data.bedrooms} bedroom building is located in the prestigious {data.location}</div>
 
-              <div className="space-y-6">
-                <p className="text-base text-gray-900">{data.desc}</p>
-              </div>
-            </div>
+            {/* Description and details */}
 
             <div className="mt-10">
               <h3 className="text-sm font-medium text-gray-900">Highlights</h3>
@@ -118,10 +157,15 @@ export default function DetailPage({ data }) {
                   data.features
                   &&
                   (data.features.map((f) => {
-                    console.log(f)
                     return <p className="text-sm mx-1 text-gray-600">{f} |</p>
                   }))
                 }
+              </div>
+            </div>
+            <div>
+              <h3 className="sr-only">Description</h3>
+              <div className="space-y-6">
+                <p className="text-base text-gray-900">{data.desc}</p>
               </div>
             </div>
             <div className='mt-10 text-sm'>

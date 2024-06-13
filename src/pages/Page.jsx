@@ -16,6 +16,7 @@ import AdminNewProject from "./AdminPages/AdminNewProject/AdminNewProject";
 import NewProjects from "./NewProjects/NewProjects";
 import Career from "./Career/Career";
 import AdminCareer from "./AdminPages/AdminCareer/AdminCareer";
+import Privacy from "./Privacy/Privacy";
 
 const Home = lazy(() => import("./Home/Home"));
 const About = lazy(() => import("./About/About"));
@@ -56,6 +57,7 @@ function Page() {
                     <Route path="/holidayRealEstate" element={<HolidayRealEstate/>} />
                     <Route path="/newProjects" element={<NewProjects/>} />
                     <Route path="/career" element={<Career/>} />
+                    <Route path="/privacy" element={<Privacy/>} />
                 </Routes>
                 <Routes>
                     {isLoggedIn ? (

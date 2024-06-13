@@ -20,6 +20,39 @@ const HeroSection = ({ searchResult, setSearchResult, handleFilter }) => {
         handleFilter(result);
     }
 
+    const [toggle, setToggle] = useState(false);
+    const handleClick = () => setToggle(!toggle);
+    const handleSelect = (value) => {
+        setCity(value);
+        setToggle(false);
+    };
+
+    const options = [
+        "", "Al Barari", "Al Barsha", "Al Furjan", "Al Habtoor City",
+        "Al Hamra Village", "Al Jaddaff", "Al Jurf", "Al Kifaf",
+        "Al Marjan Island", "Al Reem Island", "Al Safa", "Al Sufouh",
+        "Al Wasl", "Al Zorah", "Arabian Ranches", "Arabian Ranches 2",
+        "Arabian Ranches 3", "Arjan", "Bluewaters Island", "Burj Khalifa District",
+        "Business Bay", "City Walk", "Culture Village", "DIFC",
+        "Deira", "Downtown Dubai", "Downtown Jebel Ali", "Dubai Canal",
+        "Dubai Creek Harbour", "Dubai Festival City", "Dubai Healthcare City", "Dubai Hills Estate",
+        "Dubai Investment Park", "Dubai Islands", "Dubai Marina", "Dubai Production City",
+        "Dubai Silicon Oasis", "Dubai South", "Dubai Sports City", "Dubailand",
+        "Emaar Beachfront", "Emaar South", "Emirates Hills", "Emirates Living",
+        "Expo City Dubai", "Falconcity", "Hudayriyat Island", "International City",
+        "JBR", "Jebel Ali", "Jebel Ali Village", "Jumeira Bay",
+        "Jumeirah", "Jumeirah Golf Estate", "Jumeirah Height", "Jumeirah Islands",
+        "Jumeirah Lake Towers", "Jumeirah Park", "Jumeirah Village Circle", "Jumeirah Village Triangle",
+        "MBR City", "Madinat Badr", "Madinat Jumeirah Living", "Majan", "Marine Drive",
+        "Meadows", "Meydan City", "Mirdif Hills", "Motor City",
+        "Mudon", "Muscat Bay", "Nad Al Hammar", "Nad Al Sheba",
+        "Palm Jebel Ali", "Palm Jumeirah", "Pearl Jumeirah", "Port De La Mer",
+        "Remraam", "Sheikh Zayed Road", "Sobha Hartland", "Springs",
+        "Studio City", "The Lakes", "The Opera District", "The Valley",
+        "The Views", "Tilal Al Ghaf", "Town Square", "Umm Suqeim",
+        "Villanova", "Yas Bay", "Zaabeel"
+    ];
+
     return (
         <section
             className="relative  h-[85vh] *:font-sans"
@@ -48,13 +81,9 @@ const HeroSection = ({ searchResult, setSearchResult, handleFilter }) => {
             <div className="absolute inset-0 bg-black opacity-25"></div>
             <div className=" absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-40%] w-[100vw]">
                 <h1 className="text-3xl md:text-6xl font-semibold mb-4 text-white">
-                    Rent Real Estate
+                    Rent 
                 </h1>
                 <div className="relative container mx-auto flex flex-col items-center justify-center  text-center text-white px-4">
-                    <p className="text-lg md:text-2xl mb-8">
-                        Dubai’s fastest growing brokerage, while providing a new standard of
-                        service
-                    </p>
                     <div className="bg-[#FFFFFF69] text-black p-4 rounded-lg shadow-md  max-w-5xl">
                         <div className="flex flex-col md:flex-row items-center justify-between space-y-2 md:space-y-0 md:space-x-2">
                             <div>
@@ -66,19 +95,44 @@ const HeroSection = ({ searchResult, setSearchResult, handleFilter }) => {
                                         <option value="residential">Residential</option>
                                     </select>
                                     <div className="flex flex-row">
-                                    <input
-                                        type="text"
-                                        placeholder="City, community or area"
-                                        className="p-2 rounded m-1 border border-gray-300 flex-1 w-[40vw] lg:w-[30vw]"
-                                        value={city}
-                                        onChange={(e) => { setCity(e.target.value); }}
-                                    />
-                                    <button
-                                        className="bg-[#173D73] text-white p-2 rounded m-1 flex-shrink-0"
-                                        onClick={() => { handleSearch() }}
-                                    >
-                                        Search
-                                    </button>
+                                        <div
+                                            className="p-2 relative si rounded m-1 bg-white text-left text-[#A1A8B3] border border-gray-300 flex-1 w-[40vw] lg:w-[30vw]"
+                                            onClick={handleClick}
+                                        >
+                                            {city === "" ? (
+                                                <div>
+                                                    Locations <span className="hidden md:inline-block">, City , Communities</span>
+                                                </div>
+                                            ) : (
+                                                <div>{city}</div>
+                                            )}
+                                            {toggle && (
+                                                <div className="absolute top-11 right-0 w-[100%] bg-white text-black rounded-md overflow-y-scroll h-[200px]">
+                                                    {options.map(option => (
+                                                        option === "" ? (<div
+                                                            key={option}
+                                                            onClick={() => handleSelect(option)}
+                                                            className="block px-4 py-2 text-[#A1A8B3] hover:bg-gray-200 cursor-pointer">
+                                                            Locations <span className="hidden md:inline-block">, City , Communities</span>
+                                                        </div>) : (
+                                                            <div
+                                                                key={option}
+                                                                onClick={() => handleSelect(option)}
+                                                                className="block px-4 py-2 text-[#A1A8B3] hover:bg-gray-200 cursor-pointer"
+                                                            >
+                                                                {option}
+                                                            </div>
+                                                        )
+                                                    ))}
+                                                </div>
+                                            )}
+                                        </div>
+                                        <button
+                                            className="bg-[#173D73] text-white p-2 rounded m-1 flex-shrink-0"
+                                            onClick={() => { handleSearch() }}
+                                        >
+                                            Search
+                                        </button>
                                     </div>
 
                                 </div>

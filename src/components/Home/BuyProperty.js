@@ -76,21 +76,21 @@ function BuyProperty({ imagePath }) {
                                         <div className="flex my-1 py-2">
                                             <div className="flex flex-col">
                                                 <div className=" text-lg text-left font-semibold flex justify-center items-center">
-                                                    <div>{property.bedrooms}</div>
+                                                    <div className="text-[#173d73]">{property.bedrooms}</div>
                                                     <img src={bedPng} alt="bed" className="w-8 h-8 mx-2" />
                                                 </div>
                                                 <div className="text-sm text-gray-400">Beds</div>
                                             </div>
                                             <div className="flex flex-col mx-4">
                                                 <div className=" text-lg text-left font-semibold flex justify-center items-center">
-                                                    <div>{property.bathrooms}</div>
+                                                    <div className="text-[#173d73]">{property.bathrooms}</div>
                                                     <img src={bathtubPng} alt="bed" className="w-8 h-8 mx-2" />
                                                 </div>
                                                 <div className="text-sm text-gray-400">Bathrooms</div>
                                             </div>
                                             <div className="flex flex-col">
                                                 <div className=" text-lg text-left font-semibold flex justify-center items-center">
-                                                    <div>{property.square}</div>
+                                                    <div className="text-[#173d73]">{property.square}</div>
                                                     <img src={scalePng} alt="bed" className="w-8 h-8 mx-2" />
                                                 </div>
                                                 <div className="text-sm text-gray-400">Square(ft)</div>

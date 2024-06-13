@@ -99,12 +99,12 @@ const Footer = () => {
               </a>
             </p>
             <p className="mb-4">
-              <a className="text-white dark:text-neutral-200">
+              <a className="text-white dark:text-neutral-200" href="/listProperty">
                 List a Property
               </a>
             </p>
             <p className="mb-4">
-              <a className="text-white dark:text-neutral-200">
+              <a className="text-white dark:text-neutral-200" href="/career">
                 Send us your CV
               </a>
             </p>
@@ -116,18 +116,23 @@ const Footer = () => {
               Service
             </h6>
             <p className="mb-4">
-              <a className="text-white dark:text-neutral-200">
-                Buy
+              <a className="text-white dark:text-neutral-200" href="/buyRealEstate">
+              Buy      
               </a>
             </p>
             <p className="mb-4">
-              <a className="text-white dark:text-neutral-200">
-                Rent
+              <a className="text-white dark:text-neutral-200" href="/rentRealEstate">
+              Rent     
               </a>
             </p>
             <p className="mb-4">
-              <a className="text-white dark:text-neutral-200">
-                Commercial
+              <a className="text-white dark:text-neutral-200" href="/commercialRealEstate">
+              Commercial     
+              </a>
+            </p>
+            <p className="mb-4">
+              <a className="text-white dark:text-neutral-200" href="/holidayRealEstate">
+              Holiday Home    
               </a>
             </p>
           </div>
@@ -141,7 +146,7 @@ const Footer = () => {
               </a>
             </p>
             <p className="mb-4">
-              <a className="text-white dark:text-neutral-200">
+              <a className="text-white dark:text-neutral-200" href="/privacy">
                 Privacy policy
               </a>
             </p>

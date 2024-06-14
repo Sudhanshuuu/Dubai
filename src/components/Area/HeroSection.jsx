@@ -89,11 +89,7 @@ const HeroSection = ({ searchResult, setSearchResult, handleFilter }) => {
                             <div>
 
                                 <div className="flex flex-col md:flex-row">
-                                    <select className="p-2 text-[#A1A8B3] m-1 rounded border border-gray-300 flex-1  lg:w-auto" name="propretyType" onChange={(e) => { setPropertyType(e.target.value); }}>
-                                        <option value="">Select Property Type</option>
-                                        <option value="commercial">Commercial</option>
-                                        <option value="residential">Residential</option>
-                                    </select>
+                               
                                     <div className="flex flex-row">
                                         <div
                                             className="p-2 relative si rounded m-1 bg-white text-left text-[#A1A8B3] border border-gray-300 flex-1 w-[40vw] lg:w-[30vw]"
@@ -136,24 +132,7 @@ const HeroSection = ({ searchResult, setSearchResult, handleFilter }) => {
                                     </div>
 
                                 </div>
-                                <div className="flex flex-row">
-                                    <select className="p-2 text-[#A1A8B3] m-1 rounded border border-gray-300 flex-1 lg:w-auto" name="propretyComplete" onChange={(e) => { setComplete(e.target.value); }}>
-                                        <option value="">Completion</option>
-                                        <option value="offPlan">Off Plan</option>
-                                        <option value="ready">Ready</option>
-                                    </select>
-
-                                    <select className="p-2 text-[#A1A8B3] m-1 rounded border border-gray-300 flex-1  lg:w-auto" name="price" onChange={(e) => { setPrice(e.target.value); }}>
-                                        <option value="">Min Price</option>
-                                        <option value="300000">300000 AED</option>
-                                        <option value="500000">500000 AED</option>
-                                        <option value="800000">800000 AED</option>
-                                        <option value="1000000">1000000 AED</option>
-                                        <option value="1500000">1500000 AED</option>
-                                        <option value="2000000">2000000 AED</option>
-                                    </select>
-
-                                </div>
+                          
                             </div>
 
                         </div>
@@ -162,9 +141,7 @@ const HeroSection = ({ searchResult, setSearchResult, handleFilter }) => {
                     {searchResult && (
                         <div className="mt-4 text-lg">
                             <p>
-                                Search Result: City - {searchResult.city}, Property Status -{" "}
-                                {searchResult.complete}, Price Range - {searchResult.price},{" "}
-                                Property Type - {searchResult.propertyType}
+                                Search Result: City - {searchResult.city}
                             </p>
                         </div>
                     )}

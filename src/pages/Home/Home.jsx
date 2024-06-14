@@ -20,9 +20,7 @@ function Home() {
         <BuyProperty />
         <TopProperty />
         <Properties />
-        <About />
         <ExploreDubai />
-        <TestimonialSection />
         <Footer />
     </div>)
 }

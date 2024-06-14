@@ -30,34 +30,16 @@ const Content = ({ data }) => {
                     </div>
                     <div className="flex flex-col px-[3%]">
                         <div className="text-left font-semibold text-xl pt-4 text-black">{property.name}</div>
-                        <div className="flex my-1 py-2">
-                            <div className="flex flex-col">
-                                <div className="text-lg text-left font-semibold flex justify-center items-center">
-                                    <div>{property.bedrooms}</div>
-                                    <img src={bedPng} alt="bed" className="w-8 h-8 mx-2" />
-                                </div>
-                                <div className="text-sm text-gray-400">Beds</div>
-                            </div>
-                            <div className="flex flex-col mx-4">
-                                <div className="text-lg text-left font-semibold flex justify-center items-center">
-                                    <div>{property.bathrooms}</div>
-                                    <img src={bathtubPng} alt="bed" className="w-8 h-8 mx-2" />
-                                </div>
-                                <div className="text-sm text-gray-400">Bathrooms</div>
-                            </div>
-                            <div className="flex flex-col">
-                                <div className="text-lg text-left font-semibold flex justify-center items-center">
-                                    <div>{property.square}</div>
-                                    <img src={scalePng} alt="bed" className="w-8 h-8 mx-2" />
-                                </div>
-                                <div className="text-sm text-gray-400">Square(ft)</div>
-                            </div>
-                        </div>
                         <div className="text-left font-semibold lg:text-lg">{property.price} AED</div>
                         <div className="text-left py-2 text-sm text-gray-400 flex items-center">
                             <img src={locationPng} alt="location" className="w-4 m-1" />
                             <div>{property.location}</div>
                         </div>
+                        <div className="text-left">
+                            <button className="py-2 px-4 my-1 mr-2 text-sm border border-[#173D73] text-[#173D73] hover:bg-[#173D73] hover:text-white duration-200 sm:my-2">RENT PROPERTY</button>
+                            <button className="py-2 px-4 my-1 mr-2 text-sm border border-[#173D73] text-[#173D73] hover:bg-[#173D73] hover:text-white duration-200 sm:my-2">BUY PROPERTY</button>
+                        </div>
+                        <div className="text-left font-semibold text-[#173d73] underline">Area Guide</div>
                     </div>
                 </div>
             </div>

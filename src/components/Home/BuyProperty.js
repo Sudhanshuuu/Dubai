@@ -71,7 +71,7 @@ function BuyProperty({ imagePath }) {
                                     <div className="relative">
                                         <img src={`${process.env.REACT_APP_IMG_URL}/${property.images[0]}`} alt="dubaiPhoto" className="h-[50vh] object-cover w-[100%] rounded-sm" />
                                     </div>
-                                    <div className="flex flex-col px-[3%]">
+                                    <div className="flex flex-col px-[4%]">
                                         <div className="text-left text-xl font-semibold pt-4 text-black sm:text-[1.7rem]">{property.price} AED</div>
                                         <div className="flex my-1 py-2">
                                             <div className="flex flex-col">

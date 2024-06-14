@@ -69,7 +69,7 @@ const Modal = ({ setModal, id ,name }) => {
                     <div>
                         <button
                             type="submit"
-                            className="w-full rounded border border-black bg-black p-3 text-white transition  hover:bg-white hover:text-black"
+                            className="w-full rounded border border-black bg-[#173d73] p-3 text-white transition  hover:bg-white hover:text-black"
 
                         >
                             Send Message

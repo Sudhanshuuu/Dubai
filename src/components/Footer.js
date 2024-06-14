@@ -4,9 +4,7 @@ const Footer = () => {
   return (
     <footer className="bg-black text-center text-white *:font-sans">
       <div className="flex items-center  npm p-6 dark:border-neutral-500">
-        <div className="mr-12 hidden lg:block">
-          <span>Get connected with us on social networks:</span>
-        </div>
+    
         {/* <!-- Social network icons container --> */}
   
       </div>

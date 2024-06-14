@@ -16,7 +16,7 @@ const VideoSection = () => {
                         <div className="w-full px-4">
                             <div className="mx-auto  mb-[20px]  text-center">
                                 <span className="text-primary mb-2 block text-lg font-semibold">
-                                    Our Communities
+                                    
                                 </span>
                                 <h2 className="text-dark mb-3 text-3xl leading-[1.208] font-bold  sm:text-4xl md:text-[40px]">
                                     Our Most Popular Community

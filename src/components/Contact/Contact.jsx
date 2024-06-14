@@ -29,17 +29,11 @@ const ContactForm = () => {
                     <div className="-mx-4 flex flex-wrap lg:justify-between">
                         <div className="w-full px-4 lg:w-1/2 xl:w-6/12">
                             <div className="mb-12 max-w-[570px] lg:mb-0">
-                                <span className="mb-4 block text-base font-semibold text-primary">
-                                    Contact Us
-                                </span>
-                                <h2 className="mb-6 text-[32px] font-bold uppercase text-dark dark:text-white sm:text-[40px] lg:text-[36px] xl:text-[40px]">
+
+                                <h2 className="mb-6 text-[32px] font-bold mt-[10vh] uppercase text-dark dark:text-white sm:text-[40px] lg:text-[36px] xl:text-[40px]">
                                     GET IN TOUCH WITH US
                                 </h2>
-                                <p className="mb-9 text-base leading-relaxed text-body-color dark:text-dark-6">
-                                    Do you have a question or enquiry for our team?
-                                    Our support team is available 24/7 to assist you and answer all your questions.
 
-                                </p>
                                 <div className="mb-8 flex w-full max-w-[370px]">
                                     <div className="mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden rounded bg-primary/5 text-primary sm:h-[70px] sm:max-w-[70px]">
                                         <svg

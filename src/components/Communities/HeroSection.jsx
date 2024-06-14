@@ -20,8 +20,8 @@ function HeroSection() {
       </video>
         <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] *:text-white w-[100%]">
 
-            <div>Dubai Community Guide</div>
-            <div className="text-4xl my-[2%] font-semibold md:text-6xl "> Dubai's most coveted communities</div>
+            <div></div>
+            <div className="text-4xl my-[2%] font-semibold md:text-6xl "></div>
         </div>
     </div>)
 }

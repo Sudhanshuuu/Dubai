@@ -1030,7 +1030,7 @@ const Enquiry = () => {
 
                 <div className="justify-left text-left"  >
                     <hr className="font-semibold my-10"></hr>
-                    <h1 className=" block text-base font-semibold text-primary my-10">Current Job Openings:  </h1>
+                    <h1 className=" block text-lg font-semibold text-primary my-10">Current Job Openings:  </h1>
                     <p className="my-2">We are currently seeking qualified candidates for the following positions:</p>
                     <p className="my-2">
                         Real Estate Agent: Are you a highly motivated and results-oriented individual with a passion for
@@ -1040,11 +1040,11 @@ const Enquiry = () => {
                         We're looking for a Property Management Specialist to oversee our rental properties and ensure a
                         seamless experience for both tenants and owners.
                     </p>
-                    <h1 className=" block text-base font-semibold text-primary my-10">How to Apply:</h1>
+                    <h1 className=" block text-lg font-semibold text-primary my-10">How to Apply:</h1>
                     <p>If you're interested in joining our team and contributing to our success, we encourage you to
                         submit your resume and cover letter through our careers page.
                         We look forward to hearing from you</p>
-                    <h1 className=" block text-base font-semibold text-primary my-10">General Enquiry - Give us your feedback!
+                    <h1 className=" block text-lg font-semibold text-primary my-10">General Enquiry - Give us your feedback!
                     </h1>
                     <p className="my-2">UCS Prime is dedicated to our clients, which is why we want to hear from you and your
                         experience with UCS Prime. Give us your feedback and honest feedback.</p>

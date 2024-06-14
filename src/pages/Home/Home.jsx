@@ -21,8 +21,6 @@ function Home() {
         <TopProperty />
         <Properties />
         <About />
-        <ListProperty />
-        <VideoSection />
         <ExploreDubai />
         <TestimonialSection />
         <Footer />

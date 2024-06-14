@@ -13,6 +13,7 @@ const Enquiry = ({ filterData }) => {
   async function fetchData() {
     try {
       const response = await axios.get(`${process.env.REACT_APP_API_URL}/enquiry`);
+      console.log(response.data);
       setData(response.data);  // Assuming you want to save the response data to state
     } catch (error) {
       console.error('Error:', error);
@@ -62,8 +63,9 @@ const Enquiry = ({ filterData }) => {
           <tr>
             <th scope="col" className="px-3 py-3 text-sm">Name</th>
             <th scope="col" className="px-3 py-3 text-sm">Email</th>
-            <th scope="col" className="px-3 py-3 text-sm">Message</th>
             <th scope="col" className="px-3 py-3 text-sm">Phone</th>
+            <th scope="col" className="px-3 py-3 text-sm">Property Name</th>
+            <th scope="col" className="px-3 py-3 text-sm">Property Id</th>
             <th scope="col" className="px-3 py-3 text-sm">Status</th>
             <th scope="col" className="px-3 py-3 text-sm">Operations</th>
           </tr>
@@ -84,8 +86,9 @@ const Enquiry = ({ filterData }) => {
                 <td className="px-3 py-4 ">{data.name}</td>
               </th>
               <td className="px-3 py-4">{data.email}</td>
-              <td className="px-3 py-4 ">{data.message.slice(0, 30)} ...</td>
               <td className="px-3 py-4 ">{data.phone} </td>
+              <td className="px-3 py-4 ">{data.propertyName} </td>
+              <td className="px-3 py-4 ">{data.propertyId} </td>
               <td className="px-3 py-4">
                 {data.status === "pending" ? <span className=' text-white  py-2 px-3 bg-green-400 rounded-xl'>Pending</span> : ''}
                 {data.status === "inprogress" ? <span className=' text-white  py-2 px-3 bg-yellow-400 rounded-xl'>In progress</span> : ''}
@@ -96,6 +99,7 @@ const Enquiry = ({ filterData }) => {
                 <button className='bg-red-500 px-4 py-2 my-1 mx-1 text-white rounded-xl duration-300 hover:bg-red-400' onClick={() => { deleteQuery(data._id) }}>Delete</button>
               </td>
               <Modal isOpen={modal} onClose={onClose} id={data._id} />
+
             </tr>
           ))}
         </tbody>

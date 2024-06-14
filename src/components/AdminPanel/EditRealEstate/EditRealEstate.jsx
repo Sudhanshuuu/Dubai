@@ -1,4 +1,4 @@
-import React, { useState , useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 export const EditRealEstate = ({ isOpen, onClose, id }) => {
@@ -34,15 +34,19 @@ export const EditRealEstate = ({ isOpen, onClose, id }) => {
             await axios.get(`${process.env.REACT_APP_API_URL}/realEstate/${id}`)
                 .then(response => {
                     setFormData(response.data);
+                    if (!response.data.features) {
+                        setFormData((prev) => { return { ...prev, features: [] } })
+                    }
                 })
                 .catch(error => {
                     console.error('Error:', error);
                 });
-    
+
         }
         getData();
-    
+
     }, [id]);
+
 
     const handleChange = (e) => {
         if (e.target.name === 'images') {
@@ -65,10 +69,10 @@ export const EditRealEstate = ({ isOpen, onClose, id }) => {
                     data.append('images', formData.images[i]);
                 }
             }
-            else if(key === "features"){
-                    for (let i = 0; i < formData.features.length; i++) {
-                        data.append('features', formData.features[i]);
-                    }
+            else if (key === "features") {
+                for (let i = 0; i < formData.features.length; i++) {
+                    data.append('features', formData.features[i]);
+                }
             }
             else {
                 data.append(key, formData[key]);
@@ -92,11 +96,11 @@ export const EditRealEstate = ({ isOpen, onClose, id }) => {
     function handleFeatureSubmit(e) {
         e.preventDefault();
         console.log("a")
-            setFormData((prev) => {
-                const updatedFeatures = [...prev.features, feature];
-                return { ...prev, features: updatedFeatures };
-            });
-            console.log(formData.features ,  'a')
+        setFormData((prev) => {
+            const updatedFeatures = [...prev.features, feature];
+            return { ...prev, features: updatedFeatures };
+        });
+        console.log(formData.features, 'a')
     }
 
     function handleChangeFeature(e) {
@@ -291,3 +295,4 @@ export const EditRealEstate = ({ isOpen, onClose, id }) => {
         </>
     );
 };
+

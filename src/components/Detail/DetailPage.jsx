@@ -2,10 +2,14 @@ import locationPng from "../../assets/location.png";
 import bedPng from "../../assets/bed.png";
 import scalePng from "../../assets/scale.png";
 import bathtubPng from "../../assets/bathtub.png";
+import { useState } from "react";
+import Modal from "./Modal";
 
 
 export default function DetailPage({ data }) {
 
+  let [index, setIndex] = useState(0);
+  let [modal, setModal] = useState(0);
 
   return (
     <div className="bg-white mx-[10vw] md:mt-[12vh] *:font-sans">
@@ -16,21 +20,25 @@ export default function DetailPage({ data }) {
           <div>
             <img
               src={`${process.env.REACT_APP_IMG_URL}/${data.images[0]}`}
-              alt={data.images[0]}
-              className="h-[75vh] w-[50vw] object-cover object-center rounded-lg"
+              alt={data.images[index]}
+              className="h-[75vh] w-[90vw] object-cover object-center rounded-lg md:w-[50vw]"
             />
           </div>
-          <div >
+          <div className="hidden relative md:block">
             <img
-              src={`${process.env.REACT_APP_IMG_URL}/${data.images[0]}`}
+              src={`${process.env.REACT_APP_IMG_URL}/${data.images[1] ? data.images[1] : data.images[0]}`}
               alt={data.images[0]}
               className="h-[37vh] mx-2 mb-2 w-[30vw] object-cover object-center rounded-lg"
             />
-            <img
-              src={`${process.env.REACT_APP_IMG_URL}/${data.images[0]}`}
-              alt={data.images[0]}
-              className="h-[37vh] mx-2 mt-2 w-[30vw] object-cover object-center rounded-lg"
-            />
+            <div className="relative">
+              <img
+                src={`${process.env.REACT_APP_IMG_URL}/${data.images[2] ? data.images[2] : data.images[0]}`}
+                alt={data.images[0]}
+                className="h-[37vh] mx-2 mt-2 w-[30vw] object-cover object-center rounded-lg"
+              />
+              <div className=" absolute top-[-9px] bg-[#173D73] h-[37vh] mx-2 mt-2 w-[30vw] rounded-lg opacity-35 text-[5rem] z-10 flex items-center justify-center text-white"></div>
+              <div className=" absolute top-[-9px] h-[37vh] mx-2 mt-2 w-[30vw] rounded-lg text-[5rem] z-10 flex items-center justify-center text-white font-light">+</div>
+            </div>
           </div>
         </div>
 
@@ -74,6 +82,7 @@ export default function DetailPage({ data }) {
                   src={`${data.images[0] ? `${process.env.REACT_APP_IMG_URL}/${data.images[0]}` : `${process.env.REACT_APP_IMG_URL}/${data.images[0]}`}`}
                   alt={data.images[0]}
                   className=" h-24 w-24 border-2 border-gray-400 mx-auto object-cover object-center rounded-xl duration-200 hover:scale-[1.1]"
+                  onClick={() => { setIndex(0) }}
                 />
               </div>
 
@@ -82,6 +91,7 @@ export default function DetailPage({ data }) {
                   src={`${data.images[1] ? `${process.env.REACT_APP_IMG_URL}/${data.images[1]}` : `${process.env.REACT_APP_IMG_URL}/${data.images[0]}`}`}
                   alt={data.images[1]}
                   className=" h-24 w-24 border-2 border-gray-400 mx-auto object-cover object-center rounded-xl duration-200 hover:scale-[1.1]"
+                  onClick={() => { setIndex(1) }}
                 />
               </div>
 
@@ -90,6 +100,7 @@ export default function DetailPage({ data }) {
                   src={`${data.images[2] ? `${process.env.REACT_APP_IMG_URL}/${data.images[2]}` : `${process.env.REACT_APP_IMG_URL}/${data.images[0]}`}`}
                   alt={data.images[2]}
                   className=" h-24 w-24 border-2 border-gray-400 mx-auto object-cover object-center rounded-xl duration-200 hover:scale-[1.1]"
+                  onClick={() => { setIndex(2) }}
                 />
               </div>
 
@@ -98,21 +109,21 @@ export default function DetailPage({ data }) {
                   src={`${data.images[3] ? `${process.env.REACT_APP_IMG_URL}/${data.images[3]}` : `${process.env.REACT_APP_IMG_URL}/${data.images[0]}`}`}
                   alt={data.images[3]}
                   className=" h-24 w-24 border-2 border-gray-400 mx-auto object-cover object-center rounded-xl duration-200 hover:scale-[1.1]"
+                  onClick={() => { setIndex(3) }}
                 />
               </div>
             </div>
             <h2 className="sr-only">Product information</h2>
             <p className="text-3xl mt-2 tracking-tight text-gray-900 font-semibold">{data.price} AED</p>
-            <form className="mt-2">
               {/* Colors */}
 
               <button
+                onClick={()=>{setModal(true)}}
                 type="submit"
                 className="flex w-full items-center justify-center rounded-md border border-[#173D73] bg-[#173D73] duration-200  px-8 py-3 text-base font-medium text-white hover:bg-white hover:text-[#173D73] focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 List Property
               </button>
-            </form>
           </div>
 
           <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
@@ -182,6 +193,7 @@ export default function DetailPage({ data }) {
           </div>
         </div>
       </div>
+      {modal ? <Modal setModal={setModal} id={data._id} name={data.name}/> : ""}
     </div>
   )
 }

@@ -33,7 +33,7 @@ function AdminEnquiry() {
             <SideBar />
             <div className="flex flex-col mt-12 md:ml-[16%] font-sans">
                <div className="flex my-6">
-                <div className="text-left font-medium text-gray-500 py-2 ">Contact</div>
+                <div className="text-left font-medium text-gray-500 py-2 ">Enquiry</div>
                 <input name="email" type="text" placeholder="Search By Email" onChange={handleChange}className="mx-4 border px-2 rounded-xl w-[100%]"/>
                </div>
                 <Enquiry filterData={filterData}/>

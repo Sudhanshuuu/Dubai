@@ -44,7 +44,7 @@ export const CreateRealEstate = ({ isOpen, onClose }) => {
         e.preventDefault();
 
         const data = new FormData();
-
+         console.log(formData)
 
         Object.keys(formData).forEach(key => {
             if (key === 'images') {
@@ -53,9 +53,9 @@ export const CreateRealEstate = ({ isOpen, onClose }) => {
                 }
             }
             else if(key === "features"){
-                    for (let i = 0; i < formData.features.length; i++) {
-                        data.append('features', formData.features[i]);
-                    }
+                formData.features.forEach((feature) => {
+                    data.append('features', feature);
+                });
             }
             else {
                 data.append(key, formData[key]);

@@ -56,7 +56,7 @@ function Navbar() {
           <a href="/commercialRealEstate" className="duration-200 hover:text-[#919191] text-base font-light">Commercial</a>
           <a href="/holidayRealEstate" className="duration-200 hover:text-[#919191] text-base font-light">Holiday Home</a>
           <a href="/newProjects" className="duration-200 hover:text-[#919191] text-base font-light">New Projects</a>
-          <a href="#" className="duration-200 hover:text-[#919191] text-base font-light">Areas</a>
+          <a href="/area" className="duration-200 hover:text-[#919191] text-base font-light">Areas</a>
           <a href='/' className="hover:text-indigo-600 hidden md:block">
             <img
               src={gif}

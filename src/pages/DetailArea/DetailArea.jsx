@@ -1,0 +1,70 @@
+import React, { useEffect, useState } from "react";
+import Navbar from "../../components/Header";
+import axios from "axios";
+import Content from "../../components/DetailArea/Content";
+import Footer from "../../components/Footer";
+import HeroSection from "../../components/DetailArea/HeroSection";
+import { useParams } from "react-router-dom";
+
+function DetailArea() {
+
+    let [data, setData] = useState([]);
+    let { location } = useParams();
+    let [filterData, setFilterData] = useState([]);
+    const [searchResult, setSearchResult] = useState(null);
+
+    useEffect(() => {
+        async function getData() {
+            await axios.get(`${process.env.REACT_APP_API_URL}/realEstate`)
+                .then(response => {
+                    setData(response.data.filter((property) => { return property.status === "approved" }));
+                    setFilterData(response.data.filter((property) => { return property.location === location && property.status === "approved" }));
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+
+        }
+        getData();
+
+
+
+    }, []);
+
+    function handleFilter(searchResult) {
+        setFilterData(data)
+        console.log(searchResult)
+        if (searchResult.city !== "Dubai") {
+            setFilterData((prev) => {
+                return prev.filter((property) => property.location.includes(searchResult.city));
+            });
+        }
+        if (searchResult.propertyType !== "Any") {
+            setFilterData((prev) => {
+                return prev.filter((property) => { return property.propertyType === searchResult.propertyType });
+            });
+        }
+        if (searchResult.price !== "Any") {
+            setFilterData((prev) => {
+                return prev.filter((property) => { return parseInt(property.price) > parseInt(searchResult.price) });
+            });
+        }
+        if (searchResult.complete !== "Any") {
+            setFilterData((prev) => {
+                return prev.filter((property) => { return property.propertyStatus === searchResult.complete });
+            });
+        }
+    }
+
+
+
+
+    return (<div>
+        <Navbar />
+        <HeroSection location={location} searchResult={searchResult} setSearchResult={setSearchResult} handleFilter={handleFilter} />
+        <Content data={filterData} />
+        <Footer />
+    </div>)
+}
+
+export default DetailArea;

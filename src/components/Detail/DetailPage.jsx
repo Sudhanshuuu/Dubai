@@ -10,6 +10,7 @@ export default function DetailPage({ data }) {
 
   let [index, setIndex] = useState(0);
   let [modal, setModal] = useState(0);
+  let [fullScreen, setFullScreen] = useState(false);
 
   return (
     <div className="bg-white mx-[10vw] md:mt-[12vh] *:font-sans">
@@ -21,8 +22,20 @@ export default function DetailPage({ data }) {
             <img
               src={`${process.env.REACT_APP_IMG_URL}/${data.images[0]}`}
               alt={data.images[index]}
-              className="h-[75vh] w-[90vw] object-cover object-center rounded-lg md:w-[50vw]"
+              className={`${fullScreen ? 'fixed top-0 left-0 h-[100vh] w-[100vw] z-30' : 'h-[75vh] w-[90vw] md:w-[50vw]'
+                } object-cover object-center rounded-lg cursor-pointer`}
+              onClick={() => setFullScreen(true)}
             />
+
+            {/* Close Button */}
+            {fullScreen && (
+              <button
+                onClick={() => setFullScreen(false)}
+                className="fixed top-4 right-4 text-white text-2xl bg-[#173D73] w-12 h-12 p-2 rounded-full z-40"
+              >
+                &times;
+              </button>
+            )}
           </div>
           <div className="hidden relative md:block">
             <img
@@ -115,15 +128,15 @@ export default function DetailPage({ data }) {
             </div>
             <h2 className="sr-only">Product information</h2>
             <p className="text-3xl mt-2 tracking-tight text-gray-900 font-semibold">{data.price} AED</p>
-              {/* Colors */}
+            {/* Colors */}
 
-              <button
-                onClick={()=>{setModal(true)}}
-                type="submit"
-                className="flex w-full items-center justify-center rounded-md border border-[#173D73] bg-[#173D73] duration-200  px-8 py-3 text-base font-medium text-white hover:bg-white hover:text-[#173D73] focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-              >
-                List Property
-              </button>
+            <button
+              onClick={() => { setModal(true) }}
+              type="submit"
+              className="flex w-full items-center justify-center rounded-md border border-[#173D73] bg-[#173D73] duration-200  px-8 py-3 text-base font-medium text-white hover:bg-white hover:text-[#173D73] focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            >
+              List Property
+            </button>
           </div>
 
           <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
@@ -193,7 +206,7 @@ export default function DetailPage({ data }) {
           </div>
         </div>
       </div>
-      {modal ? <Modal setModal={setModal} id={data._id} name={data.name}/> : ""}
+      {modal ? <Modal setModal={setModal} id={data._id} name={data.name} /> : ""}
     </div>
   )
 }

@@ -97,7 +97,7 @@ const Content = ({ data }) => {
                     onChange={(e) => handleSort(e.target.value)}
                     className="px-4 py-2 bg-white border rounded"
                 >
-                    <option value="latest">Latest</option>
+                    <option value="latest">Latest First</option>
                     <option value="max-price">By Maximum Price</option>
                     <option value="min-price">By Minimum Price</option>
                 </select>

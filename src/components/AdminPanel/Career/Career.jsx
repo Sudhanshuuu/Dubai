@@ -33,7 +33,7 @@ const Career = ({ filterData }) => {
   }, [filterData])
 
   const handleResize = () => {
-    setMobileView(window.innerWidth <= 768);
+    setMobileView(window.innerWidth <= 1008);
   };
 
 
@@ -57,17 +57,17 @@ const Career = ({ filterData }) => {
 
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg *:font-sans">
-      <table className="w-[83vw] text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 ">
-        <thead className={`text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 ${mobileView ? 'ml-[5vw] flex w-[90vw]' : ''}`}>
+      <table className="w-[83vw] text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400  ml-[8vw] md:ml-0">
+        <thead className={`text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 ${mobileView ? 'pl-[5vw] flex w-[80vw]' : ''}`}>
           <tr>
             <th scope="col" className="px-3 py-3 text-sm">Name</th>
             <th scope="col" className="px-3 py-3 text-sm">Email</th>
             <th scope="col" className="px-3 py-3 text-sm">Message</th>
-            <th scope="col" className="px-3 py-3 text-sm">Phone</th>
-            <th scope="col" className="px-3 py-3 text-sm">Position</th>
-            <th scope="col" className="px-3 py-3 text-sm">Status</th>
-            <th scope="col" className="px-3 py-3 text-sm">CV</th>
-            <th scope="col" className="px-3 py-3 text-sm">Operations</th>
+            <th scope="col" className="px-3 py-3 text-sm hidden sm:table-cell">Phone</th>
+            <th scope="col" className="px-3 py-3 text-sm hidden sm:table-cell">Position</th>
+            <th scope="col" className="px-3 py-3 text-sm hidden md:table-cell">Status</th>
+            <th scope="col" className="px-3 py-3 text-sm hidden md:table-cell">CV</th>
+            <th scope="col" className="px-3 py-3 text-sm hidden md:table-cell">Operations</th>
           </tr>
         </thead>
         <tbody>
@@ -94,7 +94,7 @@ const Career = ({ filterData }) => {
                 {data.status === "inprogress" ? <span className=' text-white  py-2 px-3 bg-yellow-400 rounded-xl'>In progress</span> : ''}
                 {data.status === "postponed" ? <span className=' text-white  py-2 px-3 bg-red-400 rounded-xl'>PostPoned</span> : ''}
               </td>
-              <td className="px-3 py-4 "><a  className='bg-gray-600 px-4 py-2 my-1 mx-1 text-white rounded-xl duration-300 hover:bg-[#919191]' href={`${process.env.REACT_APP_API_URL}/${data.cv}`} download>Download CV</a> </td>
+              <td className="px-3 py-4 "><a className='bg-gray-600 px-4 py-2 my-1 mx-1 text-white rounded-xl duration-300 hover:bg-[#919191]' href={`${process.env.REACT_APP_API_URL}/${data.cv}`} download>Download CV</a> </td>
               <td className="px-4 flex flex-col py-2 md:px-0 md:py-2">
                 <button className='bg-gray-600 px-4 py-2 my-1 mx-1 text-white rounded-xl duration-300 hover:bg-[#919191]' onClick={openModal}>Edit/View More</button>
                 <button className='bg-red-500 px-4 py-2 my-1 mx-1 text-white rounded-xl duration-300 hover:bg-red-400' onClick={() => { deleteQuery(data._id) }}>Delete</button>

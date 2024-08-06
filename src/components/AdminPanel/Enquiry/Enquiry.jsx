@@ -34,7 +34,7 @@ const Enquiry = ({ filterData }) => {
   }, [filterData])
 
   const handleResize = () => {
-    setMobileView(window.innerWidth <= 768);
+    setMobileView(window.innerWidth <= 1008);
   };
 
 
@@ -57,17 +57,17 @@ const Enquiry = ({ filterData }) => {
   }, []);
 
   return (
-    <div className="relative overflow-x-auto shadow-md sm:rounded-lg *:font-sans">
-      <table className="w-[83vw] text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 ">
-        <thead className={`text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 ${mobileView ? 'ml-[5vw] flex w-[90vw]' : ''}`}>
+    <div className={`relative overflow-x-auto shadow-md sm:rounded-lg *:font-sans`}>
+      <table className=" text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 ml-[8vw] md:ml-0">
+        <thead className={`text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 ${mobileView ? 'pl-[5vw] flex w-[83vw]' : ''}`}>
           <tr>
             <th scope="col" className="px-3 py-3 text-sm">Name</th>
             <th scope="col" className="px-3 py-3 text-sm">Email</th>
             <th scope="col" className="px-3 py-3 text-sm">Phone</th>
-            <th scope="col" className="px-3 py-3 text-sm">Property Name</th>
-            <th scope="col" className="px-3 py-3 text-sm">Property Id</th>
-            <th scope="col" className="px-3 py-3 text-sm">Status</th>
-            <th scope="col" className="px-3 py-3 text-sm">Operations</th>
+            <th scope="col" className="px-3 py-3 hidden lg:table-cell text-sm">Property Name</th>
+            <th scope="col" className="px-3 py-3 hidden lg:table-cell text-sm">Property Id</th>
+            <th scope="col" className="px-3 py-3 hidden lg:table-cell text-sm">Status</th>
+            <th scope="col" className="px-3 py-3 hidden lg:table-cell text-sm">Operations</th>
           </tr>
         </thead>
         <tbody>

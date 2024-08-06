@@ -8,6 +8,7 @@ import bathtubPng from "../../assets/bathtub.png";
 const Content = ({ data }) => {
     const [index, setIndex] = useState(0);
     const [buyRealEstate, setBuyRealEstate] = useState([]);
+    const [sortOrder, setSortOrder] = useState('latest'); // State for sort order
     const propertiesPerPage = 9;
     const navigate = useNavigate();
 
@@ -19,6 +20,27 @@ const Content = ({ data }) => {
 
     const handleClick = (id) => {
         navigate(`/property/${id}`);
+    };
+
+    const handleSort = (order) => {
+        let sortedProperties = [...buyRealEstate];
+
+        switch (order) {
+            case 'latest':
+                sortedProperties.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+                break;
+            case 'max-price':
+                sortedProperties.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
+                break;
+            case 'min-price':
+                sortedProperties.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+                break;
+            default:
+                break;
+        }
+
+        setBuyRealEstate(sortedProperties);
+        setSortOrder(order); // Update sort order
     };
 
     const renderProperties = (startIndex) => {
@@ -67,7 +89,18 @@ const Content = ({ data }) => {
     return (
         <div className="relative *:font-sans">
             <div className="my-5 font-semibold text-left ml-[7%] text-3xl">
-                Holiday Home Real Estate
+                Holiday Real Estate
+            </div>
+            <div className="my-5 ml-[7%] flex items-center">
+                <select
+                    value={sortOrder}
+                    onChange={(e) => handleSort(e.target.value)}
+                    className="px-4 py-2 bg-white border rounded"
+                >
+                    <option value="latest">Latest</option>
+                    <option value="max-price">By Maximum Price</option>
+                    <option value="min-price">By Minimum Price</option>
+                </select>
             </div>
             <div className="flex flex-col justify-center flex-wrap items-center md:flex-row">
                 {renderProperties(index * propertiesPerPage)}
@@ -77,8 +110,7 @@ const Content = ({ data }) => {
                     <div
                         key={i}
                         onClick={() => setIndex(i)}
-                        className={`mx-2 px-6 py-5 border border-black duration-300 cursor-pointer ${index === i ? 'bg-black text-white' : 'hover:bg-black hover:text-white'}`}
-                    >
+                        className={`mx-2 px-6 py-5 border border-black duration-300 cursor-pointer ${index === i ? 'bg-black text-white' : 'hover:bg-black hover:text-white'}`}>
                         {i + 1}
                     </div>
                 ))}

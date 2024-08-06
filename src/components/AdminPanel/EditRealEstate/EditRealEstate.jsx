@@ -158,65 +158,69 @@ export const EditRealEstate = ({ isOpen, onClose, id }) => {
                                         <textarea name='message' value={formData.message} onChange={handleChange} className='border px-2 w-[100%] py-1 h-[15vh] rounded-xl text-sm' />
                                     </div>
                                 </div>
-                                <div className='flex'>
-                                    <div className='flex flex-1 mx-4 my-[1px] flex-col'>
-                                        <label className="my-1 text-sm text-left" htmlFor="type">Type <span className='text-red-500'>*</span></label>
-                                        <select name="type" value={formData.type} onChange={handleChange} className='text-sm w-[100%] border px-2 py-1 rounded-xl'>
-                                            <option value="">None</option>
-                                            <option value="Rent">Rent</option>
-                                            <option value="Buy">Buy</option>
-                                            <option value="Commercial">Commercial</option>
-                                            <option value="HolidayHome">Holiday Home</option>
-                                            <option value="NewProject">New Project</option>
-                                        </select>
-                                    </div>
-                                    <div className='flex flex-1 mx-4 my-[1px] flex-col'>
-                                        <label className="my-1 text-sm text-left" htmlFor="display">Display</label>
-                                        <select name="display" value={formData.display} onChange={handleChange} className='text-sm w-[100%] border px-2 py-1 rounded-xl'>
-                                            <option value="">None</option>
-                                            {formData.type === "Buy" && <>
-                                                <option value="handPick">HandPicked</option>
-                                                <option value="feature">Top 10 Properties</option>
-                                                <option value="view">Buy Property</option>
-                                            </>}
-                                            {formData.type === "Rent" && <>
-                                                <option value="handPick">HandPicked</option>
-                                            </>}
-                                            {formData.type === "Commercial" && <>
-                                                <option value="handPick">HandPicked</option>
-                                            </>}
-                                            {formData.type === "HolidayHome" && <>
-                                                <option value="handPick">HandPicked</option>
-                                            </>}
-                                            {formData.type === "NewProject" && <>
-                                            </>}
+                                <div className='sm:flex'>
+                                    <div className='flex flex-1'>
+                                        <div className='flex flex-1 mx-4 my-[1px] flex-col'>
+                                            <label className="my-1 text-sm text-left" htmlFor="type">Type <span className='text-red-500'>*</span></label>
+                                            <select name="type" value={formData.type} onChange={handleChange} className='text-sm w-[100%] border px-2 py-1 rounded-xl'>
+                                                <option value="">None</option>
+                                                <option value="Rent">Rent</option>
+                                                <option value="Buy">Buy</option>
+                                                <option value="Commercial">Commercial</option>
+                                                <option value="HolidayHome">Holiday Home</option>
+                                                <option value="NewProject">New Project</option>
+                                            </select>
+                                        </div>
+                                        <div className='flex flex-1 mx-4 my-[1px] flex-col'>
+                                            <label className="my-1 text-sm text-left" htmlFor="display">Display</label>
+                                            <select name="display" value={formData.display} onChange={handleChange} className='text-sm w-[100%] border px-2 py-1 rounded-xl'>
+                                                <option value="">None</option>
+                                                {formData.type === "Buy" && <>
+                                                    <option value="handPick">HandPicked</option>
+                                                    <option value="feature">Top 10 Properties</option>
+                                                    <option value="view">Buy Property</option>
+                                                </>}
+                                                {formData.type === "Rent" && <>
+                                                    <option value="handPick">HandPicked</option>
+                                                </>}
+                                                {formData.type === "Commercial" && <>
+                                                    <option value="handPick">HandPicked</option>
+                                                </>}
+                                                {formData.type === "HolidayHome" && <>
+                                                    <option value="handPick">HandPicked</option>
+                                                </>}
+                                                {formData.type === "NewProject" && <>
+                                                </>}
 
-                                        </select>
+                                            </select>
+                                        </div>
+                                        <div className='flex flex-1 mx-4 my-[1px] flex-col'>
+                                            <label className="my-1 text-sm text-left" htmlFor="status">Status <span className='text-red-500'>*</span></label>
+                                            <select name="status" value={formData.status} onChange={handleChange} className='text-sm w-[100%] border px-2 py-1 rounded-xl'>
+                                                <option value="">None</option>
+                                                <option value="approved">Approved</option>
+                                                <option value="notApproved">Not Approved</option>
+                                                <option value="expired">Expired</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                    <div className='flex flex-1 mx-4 my-[1px] flex-col'>
-                                        <label className="my-1 text-sm text-left" htmlFor="status">Status <span className='text-red-500'>*</span></label>
-                                        <select name="status" value={formData.status} onChange={handleChange} className='text-sm w-[100%] border px-2 py-1 rounded-xl'>
-                                            <option value="">None</option>
-                                            <option value="approved">Approved</option>
-                                            <option value="notApproved">Not Approved</option>
-                                            <option value="expired">Expired</option>
-                                        </select>
-                                    </div>
-                                    <div className='flex flex-1 mx-4 my-[1px] flex-col'>
-                                        <label className="my-1 text-sm text-left" htmlFor="propertyStatus">Property Status <span className='text-red-500'>*</span></label>
-                                        <select name="propertyStatus" value={formData.propertyStatus} onChange={handleChange} className='text-sm w-[100%] border px-2 py-1 rounded-xl'>
-                                            <option value="">None</option>
-                                            <option value="ready">Ready</option>
-                                            <option value="offPlan">Off Plan</option>
-                                        </select>
-                                    </div>
-                                    <div className='flex flex-1 mx-4 my-[1px] flex-col'>
-                                        <label className="my-1 text-sm text-left" htmlFor="propertyType">Property Type <span className='text-red-500'>*</span></label>
-                                        <select name="propertyType" value={formData.propertyType} onChange={handleChange} className='text-sm w-[100%] border px-2 py-1 rounded-xl'>
-                                            <option value="">None</option>
-                                            <option value="commercial">Commercial</option>
-                                            <option value="residential">Residential</option>
-                                        </select>
+                                    <div className='flex flex-1'>
+                                        <div className='flex flex-1 mx-4 my-[1px] flex-col'>
+                                            <label className="my-1 text-sm text-left" htmlFor="propertyStatus">Property Status <span className='text-red-500'>*</span></label>
+                                            <select name="propertyStatus" value={formData.propertyStatus} onChange={handleChange} className='text-sm w-[100%] border px-2 py-1 rounded-xl'>
+                                                <option value="">None</option>
+                                                <option value="ready">Ready</option>
+                                                <option value="offPlan">Off Plan</option>
+                                            </select>
+                                        </div>
+                                        <div className='flex flex-1 mx-4 my-[1px] flex-col'>
+                                            <label className="my-1 text-sm text-left" htmlFor="propertyType">Property Type <span className='text-red-500'>*</span></label>
+                                            <select name="propertyType" value={formData.propertyType} onChange={handleChange} className='text-sm w-[100%] border px-2 py-1 rounded-xl'>
+                                                <option value="">None</option>
+                                                <option value="commercial">Commercial</option>
+                                                <option value="residential">Residential</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                                 <div className='flex flex-1 my-4'>
@@ -273,15 +277,15 @@ export const EditRealEstate = ({ isOpen, onClose, id }) => {
                                 <div className='flex flex-col my-4 sm:flex-row'>
                                     <div className='flex flex-1 flex-col mx-4'>
                                         <label className='my-1 text-left text-sm' htmlFor='listedBy'>Listed By <span className=' text-red-500'>*</span></label>
-                                        <input className='border my-[1px] w-[100%] rounded-xl px-2 py-1 text-sm' type="text" name='listedBy' value={formData.listedBy} onChange={handleChange} />
+                                        <input className='border my-[1px] w-[100%] rounded-xl px-2 py-1 text-sm' type="text" name='listedBy' value={formData.listedBy} onChange={handleChange} placeholder='Listed By' />
                                     </div>
                                     <div className='flex flex-1 flex-col mx-4'>
                                         <label className='hidden my-1 text-left text-sm sm:block' htmlFor='email'>Email <span className=' text-red-500'>*</span></label>
-                                        <input className='border my-[1px] w-[100%] rounded-xl px-2 py-1 text-sm' type="text" name='email' value={formData.email} onChange={handleChange} />
+                                        <input className='border my-[1px] w-[100%] rounded-xl px-2 py-1 text-sm' type="text" name='email' value={formData.email} onChange={handleChange} placeholder='Email' />
                                     </div>
                                     <div className='flex flex-1 flex-col mx-4'>
                                         <label className='hidden my-1 text-left text-sm sm:block' htmlFor='number'>Number <span className=' text-red-500'>*</span></label>
-                                        <input className='border my-[1px] w-[100%] rounded-xl px-2 py-1 text-sm' type="number" name='number' value={formData.number} onChange={handleChange} />
+                                        <input className='border my-[1px] w-[100%] rounded-xl px-2 py-1 text-sm' type="number" name='number' value={formData.number} onChange={handleChange} placeholder='Number' />
                                     </div>
                                 </div>
                                 <div>

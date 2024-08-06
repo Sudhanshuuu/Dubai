@@ -1,5 +1,5 @@
-import { Suspense, useState, lazy, createContext } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Suspense, useState, lazy, createContext, useEffect } from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Loading from "../components/Loading";
 import AdminRealEstate from "./AdminPages/AdminRealEstate/AdminRealEstate";
 import AdminBuyRealEstate from "./AdminPages/AdminBuyRealEstate/AdminBuyRealEstate";
@@ -39,6 +39,19 @@ export const AuthContext = createContext();
 function Page() {
     const [isLoggedIn, setLoggedIn] = useState(false);
 
+
+    const location = useLocation();  // Use useLocation hook to get the current location
+
+    useEffect(() => {
+        const currentPath = location.pathname;  // Get the current path from useLocation
+
+        if (window.gtag && !currentPath.startsWith('/admin')) {
+            window.gtag('config', 'G-FPSDZH7M6R', {
+                page_path: currentPath,
+            });
+        }
+    }, [location.pathname]);
+
     return (
         <AuthContext.Provider value={{ isLoggedIn, setLoggedIn }}>
             <Suspense fallback={<Loading />}>
@@ -54,14 +67,14 @@ function Page() {
                     <Route path="/listProperty" element={<ListProperty />} />
                     <Route path="/property/:id" element={<Detail />} />
                     <Route path="/buyRealEstate" element={<BuyRealEstate />} />
-                    <Route path="/rentRealEstate" element={<RentRealEstate/>} />
-                    <Route path="/commercialRealEstate" element={<CommercialRealEstate/>} />
-                    <Route path="/holidayRealEstate" element={<HolidayRealEstate/>} />
-                    <Route path="/newProjects" element={<NewProjects/>} />
-                    <Route path="/career" element={<Career/>} />
-                    <Route path="/privacy" element={<Privacy/>} />
-                    <Route path="/area/:location" element={<DetailArea/>} />
-                    <Route path="/area" element={<Area/>} />
+                    <Route path="/rentRealEstate" element={<RentRealEstate />} />
+                    <Route path="/commercialRealEstate" element={<CommercialRealEstate />} />
+                    <Route path="/holidayRealEstate" element={<HolidayRealEstate />} />
+                    <Route path="/newProjects" element={<NewProjects />} />
+                    <Route path="/career" element={<Career />} />
+                    <Route path="/privacy" element={<Privacy />} />
+                    <Route path="/area/:location" element={<DetailArea />} />
+                    <Route path="/area" element={<Area />} />
                 </Routes>
                 <Routes>
                     {isLoggedIn ? (
@@ -75,8 +88,8 @@ function Page() {
                             <Route path="/admin/rentRealEstate" element={<AdminRentRealEstate />} />
                             <Route path="/admin/commercialRealEstate" element={<AdminCommercialRealEstate />} />
                             <Route path="/admin/holidayRealEstate" element={<AdminHolidayRealEstate />} />
-                            <Route path="/admin/newProjects" element={<AdminNewProject/>} />
-                            <Route path="/admin/career" element={<AdminCareer/>} />
+                            <Route path="/admin/newProjects" element={<AdminNewProject />} />
+                            <Route path="/admin/career" element={<AdminCareer />} />
                         </>
                     ) : (
                         <Route path="/admin/*" element={<Login />} />

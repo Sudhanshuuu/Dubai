@@ -17,7 +17,7 @@ export default function Login() {
       "password": e.target.password.value
     };
 
-    await axios.post("http://localhost:3005/login", formData)
+    await axios.post(`${process.env.REACT_APP_API_URL}/login`, formData)
       .then(res => {
         setLoggedIn(true);
         navigate("/admin/home");

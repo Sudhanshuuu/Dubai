@@ -38,6 +38,7 @@ const ListProperty = ({filterData}) => {
 
     
     async function deleteQuery(id) {
+        console.log(id)
         try {
             await axios.delete(`${process.env.REACT_APP_API_URL}/listAProperty/${id}`);
             fetchData();

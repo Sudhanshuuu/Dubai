@@ -16,6 +16,12 @@ const ContactForm = () => {
             .then(response => {
                 console.log("Response Sent");
 
+                e.target.email.value = "";
+                e.target.name.value = "";
+                e.target.message.value = "";
+                e.target.phone.value = "";
+
+
             })
             .catch(error => {
                 console.error('Error:', error);

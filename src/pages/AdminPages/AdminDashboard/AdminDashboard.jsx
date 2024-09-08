@@ -10,7 +10,7 @@ function AdminDashboard() {
         <div className="flex">
             <SideBar />
             <div className="flex flex-col mt-12 md:ml-[16%] font-sans">
-                <div className="flex my-6">
+                <div className="my-2 hidden md:flex">
                     <div className="text-left font-medium text-gray-500 py-2 ">DashBoard</div>
                 </div>
                 <Dashboard />

@@ -19,6 +19,7 @@ function List() {
         await axios.post(`${process.env.REACT_APP_API_URL}/listAProperty`, formData)
             .then(response => {
                 console.log("Response Sent");
+                e.target.reset();
 
             })
             .catch(error => {

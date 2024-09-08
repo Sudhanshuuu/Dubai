@@ -34,6 +34,14 @@ const Enquiry = () => {
                 }
             });
             console.log('Response Sent', response);
+            e.target.email.value = "";
+            e.target.name.value = "";
+            e.target.message.value = "";
+            e.target.phone.value = "";
+            e.target.age.value = "";
+            e.target.position.value = "";
+            e.target.cv.value = "";
+
         } catch (error) {
             console.error('Error:', error);
         }

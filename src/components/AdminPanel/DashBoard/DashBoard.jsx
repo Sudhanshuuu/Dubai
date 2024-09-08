@@ -13,7 +13,7 @@ function Dashboard() {
         const endpoints = [
             { key: 'enquiry', url: `${process.env.REACT_APP_API_URL}/enquiry` },
             { key: 'property', url: `${process.env.REACT_APP_API_URL}/realEstate` },
-            { key: 'applicants', url: `${process.env.REACT_APP_API_URL}/Career` },
+            { key: 'applicants', url: `${process.env.REACT_APP_API_URL}/career` },
             { key: 'listEnquiry', url: `${process.env.REACT_APP_API_URL}/listAProperty` },
         ];
 

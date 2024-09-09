@@ -88,7 +88,7 @@ const RealEstate = ({ createModal , query }) => {
                                 {data.display === "feature" && <span>Top 10 Properties</span>}
                                 {data.display === "handPick" && <span >Handpicked Properties</span>}
                             </td>
-                            <td className="px-4 flex flex-col py-2 md:px-0 md:py-2">
+                            <td className=" flex flex-col py-2 md:px-0 md:py-2">
                                 <button className='bg-gray-600 px-4 py-2 my-1 mx-1 text-white rounded-xl duration-300 hover:bg-[#919191]' onClick={() => openModal(data._id)}>Edit/View More</button>
                                 <button className='bg-red-500 px-4 py-2 my-1 mx-1 text-white rounded-xl duration-300 hover:bg-red-400' onClick={() => deleteProperty(data._id)}>Delete</button>
                             </td>

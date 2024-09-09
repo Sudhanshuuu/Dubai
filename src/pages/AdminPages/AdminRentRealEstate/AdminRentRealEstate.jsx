@@ -18,7 +18,7 @@ function AdminRentRealEstate() {
     return (
         <div className="flex">
             <SideBar />
-            <div className="flex flex-col ml-3 md:mt-12 md:ml-[16%] font-sans">
+            <div className="flex flex-col ml-1 md:mt-12 md:ml-[16%] font-sans">
                 <SearchBar title="Rent Real Estate" query={query} setQuery={setQuery} openModal={openModal} />
                 <RentRealEstate createModal={modalOpen} query={query} />
             </div>
